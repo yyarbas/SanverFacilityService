@@ -1,0 +1,131 @@
+---
+// Replace CAL_USERNAME with your Cal.com self-hosted username/event slug
+// e.g. "max-mustermann/erstgespraech"
+// Your self-hosted domain goes in CAL_ORIGIN
+const CAL_ORIGIN = 'https://cal.ihre-domain.de'; // <-- update after Cal.com setup
+const CAL_SLUG = 'facility-pro/erstgespraech';    // <-- update with your username/slug
+---
+<section id="termin" class="booking">
+  <div class="container">
+    <div class="booking-header">
+      <span class="section-label">Termin buchen</span>
+      <h2>Kostenloses Erstgespräch vereinbaren</h2>
+      <p>
+        Wählen Sie direkt einen freien Termin in unserem Kalender — kein Telefon, kein Warten. Wir melden uns pünktlich bei Ihnen.
+      </p>
+    </div>
+
+    <!-- Cal.com inline embed -->
+    <div class="cal-wrapper">
+      <div id="cal-embed" style="min-height: 600px;">
+        <!-- Cal.com embed loads here via script below -->
+        <div class="cal-placeholder">
+          <div class="cal-loading">
+            <span class="cal-spinner"></span>
+            <p>Kalender wird geladen…</p>
+            <p class="cal-fallback">
+              Noch kein Termin möglich? Schreiben Sie uns direkt:
+              <a href="mailto:info@facilityprogroup.de">info@facilityprogroup.de</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cal.com embed script (self-hosted) -->
+<script is:inline define:vars={{ CAL_ORIGIN, CAL_SLUG }}>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = CAL_ORIGIN + "/embed/embed.js";
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://cal.com/embed/embed.js", "init");
+
+  Cal("init", { origin: CAL_ORIGIN });
+
+  Cal("inline", {
+    elementOrSelector: "#cal-embed",
+    calLink: CAL_SLUG,
+    layout: "month_view",
+  });
+
+  Cal("ui", {
+    styles: { branding: { brandColor: "#1e5fc2" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
+</script>
+
+<style>
+  .booking { background: var(--gray-50); }
+
+  .booking-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+
+  .booking-header p { font-size: 1.05rem; }
+
+  .cal-wrapper {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--blue-100);
+  }
+
+  .cal-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    padding: 40px;
+  }
+
+  .cal-loading {
+    text-align: center;
+    color: var(--gray-600);
+  }
+
+  .cal-spinner {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--blue-100);
+    border-top-color: var(--blue-500);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+
+  .cal-fallback {
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+
+  .cal-fallback a {
+    color: var(--blue-500);
+    font-weight: 600;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>

@@ -1,0 +1,142 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Sanver Facility Service – Sauberkeit, die überzeugt',
+  description = 'Professionelle Gebäudereinigung und Facility Management in Deutschland. Gegründet 2026 von Enes Sanver. Jetzt Termin vereinbaren.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Inter self-hosted via @fontsource-variable/inter — no external requests, GDPR-safe -->
+    <!-- Import in your main CSS or here via Astro's style import -->
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Self-hosted Inter — install with: npm install @fontsource-variable/inter */
+  @import '@fontsource-variable/inter';
+
+  :root {
+    --blue-900: #0a1f44;
+    --blue-700: #1a3a6b;
+    --blue-500: #1e5fc2;
+    --blue-300: #5b9bd5;
+    --blue-100: #dbeafe;
+    --yellow-400: #f5c800;
+    --yellow-300: #ffe066;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-600: #475569;
+    --gray-900: #0f172a;
+
+    --font: 'Inter', system-ui, sans-serif;
+    --radius: 10px;
+    --shadow: 0 4px 24px rgba(10, 31, 68, 0.10);
+    --shadow-lg: 0 8px 48px rgba(10, 31, 68, 0.16);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 96px 0;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: var(--yellow-400);
+    color: var(--blue-900);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.2;
+    color: var(--blue-900);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: var(--gray-600);
+    font-size: 1rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+  .btn-primary {
+    background: var(--yellow-400);
+    color: var(--blue-900);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+  }
+  .btn-outline:hover { background: var(--white); color: var(--blue-900); }
+
+  @media (max-width: 768px) {
+    section { padding: 64px 0; }
+  }
+</style>

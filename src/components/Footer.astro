@@ -1,0 +1,129 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span>🏢</span>
+        <span>FacilityPro<span style="color: var(--blue-300)">GmbH</span></span>
+      </a>
+      <p>Professionelles Facility Management für Unternehmen in ganz Deutschland.</p>
+      <div class="footer-contact-info">
+        <span>📍 Musterstraße 1, 20095 Hamburg</span>
+        <span>📞 <a href="tel:+4940123456789">+49 40 123 456 789</a></span>
+        <span>✉️ <a href="mailto:info@facilityprogroup.de">info@facilityprogroup.de</a></span>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Leistungen</h4>
+      <ul>
+        <li><a href="#leistungen">Gebäudereinigung</a></li>
+        <li><a href="#leistungen">Technisches FM</a></li>
+        <li><a href="#leistungen">Außenanlagen</a></li>
+        <li><a href="#leistungen">Sicherheitsdienste</a></li>
+        <li><a href="#leistungen">Abfallmanagement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Unternehmen</h4>
+      <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#vorteile">Warum FacilityPro?</a></li>
+        <li><a href="#termin">Termin buchen</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© {currentYear} FacilityPro GmbH · Alle Rechte vorbehalten</p>
+      <p>Entwickelt & gehostet in Deutschland 🇩🇪</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--blue-900);
+    color: rgba(255,255,255,0.75);
+    padding-top: 72px;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 64px;
+  }
+
+  .footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand p { font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px; }
+
+  .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.88rem;
+  }
+
+  .footer-contact-info a { color: var(--yellow-300); text-decoration: none; }
+  .footer-contact-info a:hover { text-decoration: underline; }
+
+  .footer-links h4 {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--yellow-300); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom-inner { flex-direction: column; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>

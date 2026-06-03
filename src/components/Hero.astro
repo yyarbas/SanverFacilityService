@@ -1,0 +1,174 @@
+---
+---
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="section-label">Ihr Partner für Gebäudeservice</span>
+      <h1>Sauber. Sicher.<br /><span class="accent">Zuverlässig.</span></h1>
+      <p class="hero-sub">
+        FacilityPro GmbH bietet professionelles Facility Management für Unternehmen und Liegenschaften in ganz Deutschland — von der Reinigung bis zur technischen Wartung.
+      </p>
+      <div class="hero-actions">
+        <a href="#termin" class="btn btn-primary">Jetzt Termin buchen →</a>
+        <a href="#leistungen" class="btn btn-outline">Unsere Leistungen</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>250+</strong>
+          <span>Zufriedene Kunden</span>
+        </div>
+        <div class="stat">
+          <strong>15 Jahre</strong>
+          <span>Erfahrung</span>
+        </div>
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Notfalldienst</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card card-1">
+        <span class="card-icon">✅</span>
+        <span>ISO 9001 zertifiziert</span>
+      </div>
+      <div class="hero-card card-2">
+        <span class="card-icon">🇩🇪</span>
+        <span>Standort Deutschland</span>
+      </div>
+      <div class="hero-blob"></div>
+      <div class="hero-img-placeholder">
+        <svg viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="480" height="400" rx="20" fill="#1a3a6b"/>
+          <rect x="40" y="60" width="160" height="280" rx="8" fill="#1e5fc2"/>
+          <rect x="220" y="100" width="220" height="240" rx="8" fill="#1e5fc2"/>
+          <rect x="60" y="80" width="120" height="8" rx="4" fill="#f5c800"/>
+          <rect x="240" y="120" width="180" height="8" rx="4" fill="#f5c800"/>
+          <rect x="60" y="100" width="80" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+          <rect x="60" y="116" width="100" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+          <rect x="240" y="140" width="120" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="360" cy="280" r="40" fill="#f5c800" opacity="0.15"/>
+          <text x="240" y="310" text-anchor="middle" fill="white" font-size="14" font-family="Inter,sans-serif" opacity="0.6">Ihr Gebäude in besten Händen</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+    color: var(--white);
+    padding: 100px 0 80px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    color: var(--white);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .accent { color: var(--yellow-400); }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .stat strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--yellow-400);
+  }
+
+  .stat span {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-img-placeholder {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--yellow-400);
+    opacity: 0.1;
+    border-radius: 50%;
+    top: -60px;
+    right: -60px;
+    filter: blur(40px);
+  }
+
+  .hero-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--blue-900);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    border-radius: 100px;
+    box-shadow: var(--shadow);
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  .card-1 { top: -16px; left: -16px; }
+  .card-2 { bottom: 20px; right: -16px; }
+  .card-icon { font-size: 1rem; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { max-width: 480px; margin: 0 auto; }
+    .card-1 { top: -12px; left: 12px; }
+    .card-2 { bottom: 12px; right: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { gap: 20px; }
+    .hero-actions { flex-direction: column; }
+    .btn { justify-content: center; text-align: center; }
+  }
+</style>

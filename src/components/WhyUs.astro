@@ -1,0 +1,77 @@
+---
+const reasons = [
+  { icon: '🏆', title: 'Zertifizierte Qualität', desc: 'ISO 9001, GEFMA-Mitglied und regelmäßige externe Audits sichern höchste Servicequalität.' },
+  { icon: '⚡', title: 'Schnelle Reaktionszeiten', desc: 'Bei Störungen sind wir innerhalb von 2 Stunden vor Ort — 24 Stunden am Tag, 365 Tage im Jahr.' },
+  { icon: '💰', title: 'Transparente Preise', desc: 'Keine versteckten Kosten. Individuelle Angebote mit klar kalkulierten Leistungspaketen.' },
+  { icon: '🌱', title: 'Nachhaltig & DSGVO-konform', desc: 'Umweltzertifizierte Mittel, CO₂-Bilanzierung und vollständige Datenschutz-Compliance nach deutschem Recht.' },
+];
+---
+<section id="vorteile" class="whyus">
+  <div class="container whyus-inner">
+    <div class="whyus-content">
+      <span class="section-label">Warum FacilityPro?</span>
+      <h2>Qualität, die man spürt – und vertraut</h2>
+      <p>
+        Wir sind nicht nur ein Dienstleister — wir sind Ihr langjähriger Partner. Über 250 Unternehmen vertrauen uns ihre Liegenschaften an.
+      </p>
+      <a href="#termin" class="btn btn-primary" style="margin-top: 32px;">Kostenloses Erstgespräch →</a>
+    </div>
+
+    <div class="reasons-grid">
+      {reasons.map((r) => (
+        <div class="reason-card">
+          <span class="reason-icon">{r.icon}</span>
+          <div>
+            <strong>{r.title}</strong>
+            <p>{r.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .whyus {
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+    color: white;
+  }
+
+  .whyus-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .whyus-content h2 { color: white; }
+  .whyus-content p { color: rgba(255,255,255,0.75); font-size: 1.05rem; }
+
+  .reasons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .reason-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: background 0.2s;
+  }
+
+  .reason-card:hover { background: rgba(255,255,255,0.1); }
+
+  .reason-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+
+  .reason-card strong { color: var(--yellow-400); font-size: 1rem; display: block; margin-bottom: 4px; }
+  .reason-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
+
+  @media (max-width: 900px) {
+    .whyus-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+</style>

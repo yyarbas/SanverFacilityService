@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block legal pages from search engines (they don't need to rank)
+Disallow: /impressum
+Disallow: /datenschutz
+
+# Sitemap location — update with your real domain
+Sitemap: https://www.sanver-facilityservice.de/sitemap.xml

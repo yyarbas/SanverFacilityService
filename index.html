@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sanver Facility Service – Professionelle Gebäudereinigung und Facility Management in Deutschland. Frisch gegründet, erfahren und zuverlässig." />
+  <title>Sanver Facility Service – Sauberkeit, die überzeugt</title>
+  <link rel="canonical" href="https://www.sanver-facilityservice.de/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sanver-facilityservice.de/" />
+  <meta property="og:title" content="Sanver Facility Service – Sauberkeit, die überzeugt" />
+  <meta property="og:description" content="Professionelle Gebäudereinigung und Facility Management in Deutschland. Gegründet 2026 von Enes Sanver. Jetzt Termin vereinbaren." />
+  <meta property="og:image" content="https://www.sanver-facilityservice.de/media/sanver_logo_512x512.png" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="media/cropped-ChatGPT-Image-4.-Feb.-2026-15_23_19icon.png" />
+  <link rel="apple-touch-icon" href="media/sanver_logo_512x512.png" />
+  <!-- No Google Fonts — system font stack used (GDPR-safe, zero external requests) -->
+  <!-- Production Astro build uses @fontsource-variable/inter (self-hosted) -->
+
+  <!-- Security meta tags -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <style>
+    :root {
+      --navy:        #1B3A7A;
+      --navy-dark:   #112660;
+      --navy-mid:    #22478F;
+      --blue:        #29ABE2;
+      --blue-light:  #6DCBF0;
+      --blue-pale:   #E8F6FD;
+      --green:       #5DB85A;
+      --green-dark:  #429040;
+      --green-pale:  #EAF7EA;
+      --white:       #FFFFFF;
+      --gray-50:     #F7FAFC;
+      --gray-100:    #EEF2F7;
+      --gray-500:    #64748B;
+      --gray-900:    #0F172A;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Helvetica Neue', Arial, sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 2px 8px rgba(27,58,122,0.08);
+      --shadow:    0 4px 24px rgba(27,58,122,0.12);
+      --shadow-lg: 0 12px 48px rgba(27,58,122,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--gray-900); background: var(--white); line-height: 1.65; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+    section { padding: 100px 0; }
+
+    /* ── LABELS & TYPOGRAPHY ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-pale); color: var(--green-dark);
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 100px; margin-bottom: 18px;
+      border: 1px solid rgba(93,184,90,0.25);
+    }
+    .tag.blue { background: var(--blue-pale); color: #1480B0; border-color: rgba(41,171,226,0.25); }
+    h1, h2, h3 { color: var(--navy); line-height: 1.15; }
+    h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 800; margin-bottom: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    p { color: var(--gray-500); font-size: .97rem; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 30px; border-radius: var(--radius); font-weight: 700;
+      font-size: .97rem; text-decoration: none; border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s, background .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 16px rgba(41,171,226,0.35); }
+    .btn-primary:hover { background: #1D97CC; box-shadow: 0 8px 28px rgba(41,171,226,0.45); }
+    .btn-secondary { background: var(--navy); color: var(--white); box-shadow: 0 4px 16px rgba(27,58,122,0.25); }
+    .btn-secondary:hover { background: var(--navy-dark); box-shadow: 0 8px 28px rgba(27,58,122,0.35); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .btn-ghost:hover { background: var(--navy); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--navy); box-shadow: var(--shadow); }
+    .btn-white:hover { box-shadow: var(--shadow-lg); }
+
+    @media(max-width:768px){ section{padding:72px 0;} }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    .nav-wrapper {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27,58,122,0.09);
+      box-shadow: 0 2px 16px rgba(27,58,122,0.07);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .logo img { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--gray-500); font-weight: 500;
+      font-size: .93rem; transition: color .15s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--blue); transform: scaleX(0); transition: transform .2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta { padding: 11px 22px !important; font-size: .88rem !important; }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .3s; }
+    @media(max-width:900px){
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 76px; left: 0; right: 0;
+        background: white; flex-direction: column; padding: 24px 28px; gap: 20px;
+        border-bottom: 1px solid var(--gray-100); box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+    }
+
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    .hero {
+      background: linear-gradient(145deg, #0D2154 0%, #1B3A7A 50%, #1A5FA0 100%);
+      padding: 90px 0 80px; overflow: hidden; position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(41,171,226,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(41,171,226,0.15); color: var(--blue-light);
+      border: 1px solid rgba(41,171,226,0.3);
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 900; margin-bottom: 22px; line-height: 1.08;
+    }
+    .hero h1 .highlight {
+      color: var(--blue);
+      position: relative; display: inline-block;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.72); font-size: 1.08rem;
+      margin-bottom: 40px; max-width: 500px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+    .hero-divider {
+      height: 1px; background: rgba(255,255,255,0.12);
+      margin-bottom: 36px;
+    }
+    .hero-stats { display: flex; gap: 40px; }
+    .hero-stats .stat strong { display: block; font-size: 1.8rem; font-weight: 900; color: var(--blue); line-height: 1; }
+    .hero-stats .stat span { font-size: .82rem; color: rgba(255,255,255,0.55); margin-top: 4px; display: block; }
+
+    /* Hero right visual */
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-logo-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 52px 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .hero-logo-card img { width: 260px; height: auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
+    .hero-logo-card .tagline {
+      margin-top: 18px; color: rgba(255,255,255,0.6); font-size: .85rem;
+      font-style: italic; letter-spacing: .03em;
+    }
+
+    .hero-badge {
+      position: absolute;
+      background: var(--white); color: var(--navy);
+      font-weight: 700; font-size: .82rem;
+      padding: 10px 18px; border-radius: 100px;
+      box-shadow: var(--shadow-lg); white-space: nowrap;
+      display: flex; align-items: center; gap: 7px; z-index: 2;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green); flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    .badge-tl { top: -18px; left: -18px; }
+    .badge-br { bottom: -18px; right: -18px; }
+
+    .hero-glow {
+      position: absolute; width: 400px; height: 400px;
+      background: var(--blue); opacity: .08; border-radius: 50%;
+      filter: blur(60px); pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(93,184,90,.4); }
+      50%      { box-shadow: 0 0 0 6px rgba(93,184,90,0); }
+    }
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;gap:48px;}
+      .hero-visual{max-width:420px;margin:0 auto;}
+      .badge-tl{top:-12px;left:12px;} .badge-br{bottom:-12px;right:12px;}
+    }
+    @media(max-width:520px){ .hero-actions{flex-direction:column;} .hero-stats{gap:24px;} }
+
+    /* ════════════════════════════════
+       TRUST BAR
+    ════════════════════════════════ */
+    .trust-bar {
+      background: var(--gray-50); border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100); padding: 28px 0;
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--gray-500); font-size: .88rem; font-weight: 500;
+    }
+    .trust-icon { font-size: 1.2rem; }
+
+    /* ════════════════════════════════
+       ABOUT
+    ════════════════════════════════ */
+    .about { background: var(--white); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-card {
+      background: linear-gradient(135deg, var(--blue-pale) 0%, #D4EFFA 100%);
+      border-radius: var(--radius-lg); padding: 48px 40px;
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(41,171,226,0.2);
+    }
+    .about-card::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(41,171,226,0.2), transparent 70%);
+      border-radius: 50%;
+    }
+    .about-card-icon {
+      width: 72px; height: 72px; background: var(--white);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin-bottom: 20px; box-shadow: var(--shadow);
+    }
+    .about-card h3 { color: var(--navy); font-size: 1.3rem; margin-bottom: 8px; }
+    .about-card p { font-size: .93rem; line-height: 1.7; }
+    .about-founder-badge {
+      position: absolute; bottom: -20px; right: 24px;
+      background: var(--navy); color: white;
+      padding: 14px 22px; border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-founder-badge strong { display: block; font-size: 1rem; }
+    .about-founder-badge span { font-size: .78rem; color: var(--blue-light); }
+    .about-content h2 { margin-bottom: 16px; }
+    .about-content > p { font-size: 1rem; line-height: 1.75; margin-bottom: 12px; }
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 32px;
+    }
+    .highlight-item {
+      background: var(--gray-50); border-radius: var(--radius);
+      padding: 18px 20px; border-left: 3px solid var(--blue);
+    }
+    .highlight-item strong { color: var(--navy); font-size: .95rem; display: block; margin-bottom: 3px; }
+    .highlight-item span { font-size: .83rem; color: var(--gray-500); }
+    @media(max-width:900px){
+      .about-inner{grid-template-columns:1fr;gap:60px;}
+      .about-visual{max-width:480px;margin:0 auto;}
+    }
+    @media(max-width:520px){ .about-highlights{grid-template-columns:1fr;} }
+
+    /* ════════════════════════════════
+       SERVICES
+    ════════════════════════════════ */
+    .services { background: var(--gray-50); }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+    .section-head p { font-size: 1.02rem; margin-top: 10px; }
+
+    .services-categories { display: flex; flex-direction: column; gap: 52px; }
+    .service-category h3 {
+      font-size: 1rem; font-weight: 700; color: var(--navy);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--gray-100);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .service-category h3 span { font-size: 1.3rem; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .service-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 28px 24px; border: 1.5px solid transparent;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--blue), var(--green));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .25s;
+    }
+    .service-card:hover { border-color: var(--blue-pale); box-shadow: var(--shadow); transform: translateY(-4px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .svc-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .service-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .service-card p { font-size: .87rem; line-height: 1.6; }
+    @media(max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:560px){ .services-grid{grid-template-columns:1fr;} }
+
+    /* ════════════════════════════════
+       WHY US
+    ════════════════════════════════ */
+    .whyus {
+      background: linear-gradient(145deg, #0D2154 0%, #1B3A7A 60%, #1A5FA0 100%);
+      position: relative; overflow: hidden;
+    }
+    .whyus::before {
+      content: ''; position: absolute;
+      top: -100px; left: -100px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(41,171,226,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .whyus::after {
+      content: ''; position: absolute;
+      bottom: -100px; right: -100px; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(93,184,90,0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .whyus-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .whyus-content h2 { color: var(--white); margin-bottom: 16px; }
+    .whyus-content > p { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px; }
+    .whyus-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .whyus-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 22px 20px;
+      transition: background .2s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.11); }
+    .why-card .why-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .why-card strong { color: var(--blue-light); font-size: .95rem; display: block; margin-bottom: 5px; }
+    .why-card p { color: rgba(255,255,255,0.62); font-size: .85rem; margin: 0; line-height: 1.55; }
+    @media(max-width:900px){
+      .whyus-inner{grid-template-columns:1fr;gap:48px;}
+      .whyus-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:480px){ .whyus-grid{grid-template-columns:1fr;} }
+
+    /* ════════════════════════════════
+       PROCESS
+    ════════════════════════════════ */
+    .process { background: var(--white); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0; position: relative; margin-top: 56px;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 36px; left: calc(12.5%); right: calc(12.5%);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      z-index: 0;
+    }
+    .process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: white; font-size: 1.4rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; box-shadow: 0 4px 20px rgba(27,58,122,0.3);
+    }
+    .process-step h4 { color: var(--navy); font-size: .97rem; font-weight: 700; margin-bottom: 8px; }
+    .process-step p { font-size: .85rem; line-height: 1.6; }
+    @media(max-width:768px){
+      .process-steps{grid-template-columns:repeat(2,1fr);gap:40px;}
+      .process-steps::before{display:none;}
+    }
+    @media(max-width:420px){ .process-steps{grid-template-columns:1fr;} }
+
+    /* ════════════════════════════════
+       BOOKING
+    ════════════════════════════════ */
+    .booking { background: var(--gray-50); }
+    .booking-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .booking-info h2 { margin-bottom: 16px; }
+    .booking-info > p { font-size: 1.02rem; line-height: 1.75; margin-bottom: 28px; }
+    .booking-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .booking-perks li { display: flex; align-items: center; gap: 12px; font-size: .93rem; color: var(--gray-900); font-weight: 500; }
+    .perk-check {
+      width: 26px; height: 26px; background: var(--green); color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 800; flex-shrink: 0;
+    }
+    .booking-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);
+      overflow: hidden;
+    }
+    .booking-card-header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      padding: 28px 32px; text-align: center;
+    }
+    .booking-card-header h3 { color: white; font-size: 1.2rem; margin-bottom: 6px; }
+    .booking-card-header p { color: rgba(255,255,255,0.65); font-size: .88rem; margin: 0; }
+    .booking-card-body { padding: 36px 32px; }
+    .cal-spinner-wrap { text-align: center; }
+    .cal-spinner {
+      display: block; width: 44px; height: 44px;
+      border: 3px solid var(--blue-pale); border-top-color: var(--blue);
+      border-radius: 50%; animation: spin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    .cal-note { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .cal-sub { font-size: .83rem; color: var(--gray-500); line-height: 1.6; }
+    .cal-divider { height: 1px; background: var(--gray-100); margin: 24px 0; }
+    .contact-direct { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--gray-50); border-radius: var(--radius);
+      padding: 14px 18px; text-decoration: none;
+      color: var(--navy); font-weight: 600; font-size: .9rem;
+      border: 1px solid var(--gray-100); transition: background .15s, border-color .15s;
+    }
+    .contact-link:hover { background: var(--blue-pale); border-color: var(--blue); }
+    .contact-link span:first-child { font-size: 1.2rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media(max-width:900px){ .booking-inner{grid-template-columns:1fr;gap:48px;} }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    .footer {
+      background: linear-gradient(160deg, #0D2154 0%, #1B3A7A 100%);
+      padding-top: 80px;
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 40px; padding-bottom: 64px;
+    }
+    .footer-logo img { height: 48px; margin-bottom: 18px; filter: brightness(0) invert(1); opacity: .9; }
+    .footer-brand p { font-size: .9rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 22px; }
+    .footer-contacts { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contacts a, .footer-contacts span {
+      color: rgba(255,255,255,0.55); font-size: .87rem;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: color .15s;
+    }
+    .footer-contacts a:hover { color: var(--blue-light); }
+    .footer-col h4 {
+      color: white; font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 18px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: .88rem; transition: color .15s; }
+    .footer-col a:hover { color: var(--blue-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+    }
+    .footer-bottom-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .8rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 8px;
+    }
+    .footer-bottom-inner a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-bottom-inner a:hover { color: var(--blue-light); }
+    @media(max-width:900px){
+      .footer-inner{grid-template-columns:1fr 1fr;gap:36px;}
+      .footer-brand{grid-column:1/-1;}
+    }
+    @media(max-width:520px){
+      .footer-inner{grid-template-columns:1fr;}
+      .footer-bottom-inner{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav-wrapper">
+  <nav class="container nav">
+    <a href="#" class="logo">
+      <img src="media/cropped-sanver_logo_512x512.png" alt="Sanver Facility Service" />
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#vorteile">Warum wir?</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#termin" class="btn btn-primary nav-cta">Termin buchen</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>✦</span> Neu in 2026 · Erfahren seit Jahren
+      </div>
+      <h1>
+        Sauberkeit,<br>
+        die <span class="highlight">überzeugt.</span>
+      </h1>
+      <p class="hero-sub">
+        Sanver Facility Service steht für professionelle Gebäudereinigung und umfassendes Facility Management — gegründet 2026 von Enes Sanver und einem Team, das sein Handwerk in- und auswendig kennt.
+      </p>
+      <div class="hero-actions">
+        <a href="#termin" class="btn btn-primary">Jetzt Termin buchen →</a>
+        <a href="#leistungen" class="btn btn-white">Unsere Leistungen</a>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Zufriedenheitsgarantie</span>
+        </div>
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Erreichbar</span>
+        </div>
+        <div class="stat">
+          <strong>Neu</strong>
+          <span>Gegründet 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-glow"></div>
+      <div class="hero-badge badge-tl">
+        <span class="dot"></span> Jetzt verfügbar
+      </div>
+      <div class="hero-logo-card">
+        <img src="media/sanver_logo_512x512.png" alt="Sanver Facility Service Logo" />
+        <p class="tagline">„Ihr Gebäude. Unsere Leidenschaft."</p>
+      </div>
+      <div class="hero-badge badge-br">
+        🇩🇪 Standort Deutschland
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="container trust-inner">
+    <div class="trust-item"><span class="trust-icon">✅</span> Zuverlässig & pünktlich</div>
+    <div class="trust-item"><span class="trust-icon">🌿</span> Umweltfreundliche Mittel</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> DSGVO-konform</div>
+    <div class="trust-item"><span class="trust-icon">💬</span> Persönliche Ansprechpartner</div>
+    <div class="trust-item"><span class="trust-icon">📋</span> Transparente Preise</div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="ueber-uns" class="about">
+  <div class="container about-inner">
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-card-icon">💧</div>
+        <h3>Frisch gegründet.<br>Erfahren seit Tag 1.</h3>
+        <p>
+          Sanver Facility Service wurde 2026 von Enes Sanver gegründet — mit dem Ziel, das zu verwirklichen, was er über Jahre als Angestellter gelernt hat: Gebäudereinigung auf höchstem Niveau, mit echtem Qualitätsanspruch und persönlicher Note.
+        </p>
+        <br>
+        <p>
+          Unser Team bringt jahrelange Praxiserfahrung aus dem Facility-Bereich mit — jetzt gebündelt in einem eigenen Unternehmen, das mit Herz und Können für seine Kunden arbeitet.
+        </p>
+      </div>
+      <div class="about-founder-badge">
+        <strong>Enes Sanver</strong>
+        <span>Gründer & Geschäftsführer</span>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="tag">Über uns</span>
+      <h2>Wir kennen unsere Arbeit. Und wir lieben sie.</h2>
+      <p>
+        Was uns von anderen unterscheidet: Wir sind kein anonymes Großunternehmen. Bei Sanver Facility Service kennt jeder Kunde seinen Ansprechpartner — und unser Team kennt jedes Objekt persönlich.
+      </p>
+      <p>
+        Als junges Unternehmen haben wir den Hunger nach Qualität und den Willen, jeden Kunden zu begeistern. Gleichzeitig bringen wir die Erfahrung mit, die es braucht, um Herausforderungen souverän zu meistern.
+      </p>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <strong>Persönlich & direkt</strong>
+          <span>Kurze Wege, schnelle Entscheidungen</span>
+        </div>
+        <div class="highlight-item">
+          <strong>Erfahrenes Team</strong>
+          <span>Jahrelange Branchenerfahrung</span>
+        </div>
+        <div class="highlight-item">
+          <strong>Flexibel & verlässlich</strong>
+          <span>Individuelle Lösungen für jedes Objekt</span>
+        </div>
+        <div class="highlight-item">
+          <strong>Nachhaltig</strong>
+          <span>Ökologische Reinigungsmittel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="leistungen" class="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Unsere Leistungen</span>
+      <h2>Alles sauber. Alles aus einer Hand.</h2>
+      <p>Von der täglichen Büroreinigung bis zur Spezialreinigung — wir übernehmen alle Reinigungsaufgaben rund um Ihr Gebäude, damit Sie sich auf das Wesentliche konzentrieren können.</p>
+    </div>
+
+    <div class="services-categories">
+
+      <!-- BÜRO & GEWERBLICH -->
+      <div class="service-category">
+        <h3><span>🏢</span> Büro- & Gewerbereinigung</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="svc-icon">🖥️</span>
+            <h4>Büroreinigung</h4>
+            <p>Tägliche oder wöchentliche Reinigung von Arbeitsplätzen, Böden, Oberflächen und Gemeinschaftsbereichen — für ein Arbeitsumfeld, in dem sich alle wohlfühlen.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🔄</span>
+            <h4>Unterhaltsreinigung</h4>
+            <p>Regelmäßige, vertraglich vereinbarte Reinigung für dauerhaft gepflegte Gebäude. Wir sorgen für gleichbleibend hohe Sauberkeit — zuverlässig und diskret.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏬</span>
+            <h4>Geschäfts­räume & Läden</h4>
+            <p>Saubere Verkaufsflächen, Umkleiden und Eingangsbereiche stärken das Vertrauen Ihrer Kunden. Wir reinigen außerhalb Ihrer Öffnungszeiten.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🍽️</span>
+            <h4>Küchen & Kantinen</h4>
+            <p>Hygienegerechte Reinigung von Küchen, Kantinenbereichen und Aufenthaltsräumen nach HACCP-Standards — für Sauberkeit, die man schmeckt.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🚽</span>
+            <h4>Sanitäranlagen</h4>
+            <p>Gründliche Desinfektion und Reinigung von WCs, Waschräumen und Duschen — täglich frisch, keimarm und angenehm für alle Nutzer.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🪟</span>
+            <h4>Glas- & Fenster­reinigung</h4>
+            <p>Innen- und Außenreinigung von Fenstern, Glasfronten und Schaufenstern — für strahlende Transparenz und einen professionellen ersten Eindruck.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPEZIALREINIGUNG -->
+      <div class="service-category">
+        <h3><span>✨</span> Spezialreinigung</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="svc-icon">🧹</span>
+            <h4>Grundreinigung</h4>
+            <p>Intensive Tiefenreinigung für alle Bereiche — ideal nach Renovierungen, Umzügen oder wenn ein frischer Start gefragt ist. Wir bringen jedes Objekt auf Hochglanz.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏗️</span>
+            <h4>Bau­endreinigung</h4>
+            <p>Nach Neubau oder Umbau beseitigen wir Bauschutt, Gipsstaub, Klebereste und Schmutz — damit Ihr neues Objekt glänzend und übergabebereit ist.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🪑</span>
+            <h4>Polster- & Teppich­reinigung</h4>
+            <p>Professionelle Tiefenreinigung von Teppichböden, Bürostühlen und Polstermöbeln mit leistungsstarker Sprühextraktionstechnik.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🪨</span>
+            <h4>Stein- & Hartest­rich­pflege</h4>
+            <p>Kristallisation, Versiegelung und Pflege von Marmor, Naturstein, Granit und Hartbelag — für dauerhaft schöne und geschützte Böden.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🦠</span>
+            <h4>Desinfektion & Hygiene</h4>
+            <p>Professionelle Desinfektionsreinigung für Arztpraxen, Pflegeeinrichtungen und sensible Bereiche — mit zertifizierten viruziden Mitteln.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏭</span>
+            <h4>Industrie­reinigung</h4>
+            <p>Reinigung von Produktionshallen, Maschinen und Industrieböden — auch bei laufendem Betrieb, mit speziellen Geräten und Methoden.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GEBÄUDE & AUSSEN -->
+      <div class="service-category">
+        <h3><span>🌿</span> Gebäude & Außenanlagen</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="svc-icon">🏠</span>
+            <h4>Treppen­haus­reinigung</h4>
+            <p>Regelmäßige Reinigung von Treppenhäusern, Aufzügen und Gemeinschaftsflächen in Wohn- und Geschäftshäusern — für ein gepflegtes Erscheinungsbild.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🧱</span>
+            <h4>Fassaden­reinigung</h4>
+            <p>Schonende Reinigung von Gebäudefassaden, Außenwänden und Eingangsbereichen mit professioneller Hochdrucktechnik.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🅿️</span>
+            <h4>Parkplatz­reinigung</h4>
+            <p>Reinigung und Pflege von Pkw-Stellplätzen, Tiefgaragen und Zufahrten — sauber, sicher und gepflegt für Ihre Kunden und Mitarbeiter.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">❄️</span>
+            <h4>Winterdienst</h4>
+            <p>Zuverlässige Schneeräumung und Streuung auf Gehwegen, Einfahrten und Parkflächen — damit Ihre Verkehrssicherungspflicht erfüllt ist.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🌳</span>
+            <h4>Grünanlagenpflege</h4>
+            <p>Rasenmähen, Heckenschnitt, Laubblasen und Gartenpflege — wir halten Ihre Außenanlagen das ganze Jahr über in einwandfreiem Zustand.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🗑️</span>
+            <h4>Abfallmanagement</h4>
+            <p>Leerung und Reinigung von Mülleimern, Entsorgung von Sondermüll und fachgerechte Wertstofftrennung gemäß den deutschen Kreislaufwirtschaftsstandards.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /services-categories -->
+  </div>
+</section>
+
+<!-- ═══ WHY US ═══ -->
+<section id="vorteile" class="whyus">
+  <div class="container whyus-inner">
+    <div class="whyus-content">
+      <span class="tag">Warum Sanver?</span>
+      <h2>Der Unterschied, den man sieht — und fühlt.</h2>
+      <p>
+        Wir sind kein Massendienstleister. Jeder Auftrag ist für uns persönlich — denn hinter Sanver stecken echte Menschen mit echtem Anspruch. Qualität ist für uns keine Marketingaussage, sondern tägliche Verpflichtung.
+      </p>
+      <div class="whyus-ctas">
+        <a href="#termin" class="btn btn-primary">Kostenloses Angebot →</a>
+        <a href="#leistungen" class="btn btn-ghost" style="color:white;border-color:rgba(255,255,255,0.4)">Alle Leistungen</a>
+      </div>
+    </div>
+
+    <div class="whyus-grid">
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <strong>Persönliche Betreuung</strong>
+        <p>Sie haben immer einen direkten Ansprechpartner — keine Warteschleifen, kein Callcenter.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⚡</span>
+        <strong>Reaktionsschnell</strong>
+        <p>Kurzfristige Anfragen, Notfalleinsätze und Sonderwünsche — wir reagieren schnell und unkompliziert.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <strong>Faire Preise</strong>
+        <p>Klare Kalkulation ohne versteckte Kosten. Sie wissen immer, was Sie bekommen und was es kostet.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌱</span>
+        <strong>Nachhaltig</strong>
+        <p>Wir setzen auf umweltfreundliche, biologisch abbaubare Reinigungsmittel — gut für Ihr Objekt und die Umwelt.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <strong>Ergebnis­orientiert</strong>
+        <p>Nicht der Aufwand zählt — sondern das Ergebnis. Wir liefern Qualität, die sichtbar ist.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🔐</span>
+        <strong>Vertrauenswürdig</strong>
+        <p>Diskretion und Zuverlässigkeit sind für uns selbstverständlich — auch wenn wir außerhalb der Arbeitszeiten tätig sind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="ablauf" class="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">So läuft es ab</span>
+      <h2>Einfach. Transparent. Unkompliziert.</h2>
+      <p>Von der ersten Anfrage bis zur strahlend sauberen Übergabe — in vier klaren Schritten.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Anfrage stellen</h4>
+        <p>Termin online buchen oder uns direkt kontaktieren — schnell und unkompliziert.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Beratung & Besichtigung</h4>
+        <p>Wir besichtigen Ihr Objekt persönlich und ermitteln den genauen Bedarf.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Angebot & Vereinbarung</h4>
+        <p>Sie erhalten ein transparentes, individuelles Angebot — ohne Kleingedrucktes.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Reinigung & Übergabe</h4>
+        <p>Unser Team übernimmt — pünktlich, gründlich und mit Qualitätskontrolle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOKING ═══ -->
+<section id="termin" class="booking">
+  <div class="container booking-inner">
+    <div class="booking-info">
+      <span class="tag">Termin buchen</span>
+      <h2>Kostenloses Erstgespräch vereinbaren</h2>
+      <p>Kein langes Hin und Her. Buchen Sie direkt einen Termin — wir besprechen Ihr Objekt, Ihre Anforderungen und machen Ihnen ein unverbindliches Angebot.</p>
+      <ul class="booking-perks">
+        <li><span class="perk-check">✓</span> Kostenlos & unverbindlich</li>
+        <li><span class="perk-check">✓</span> Persönlicher Gesprächspartner: Enes Sanver</li>
+        <li><span class="perk-check">✓</span> Angebot innerhalb von 24 Stunden</li>
+        <li><span class="perk-check">✓</span> Flexibel — vor Ort, per Video oder Telefon</li>
+      </ul>
+      <a href="tel:+49XXXXXXXXXX" class="btn btn-secondary">📞 Direkt anrufen <span style="font-size:.75rem;opacity:.7">[TELEFON EINTRAGEN]</span></a>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-card-header">
+        <h3>📅 Termin wählen</h3>
+        <p>Wählen Sie einen passenden Zeitslot in unserem Kalender</p>
+      </div>
+      <div class="booking-card-body">
+        <div id="cal-embed">
+          <div class="cal-spinner-wrap">
+            <span class="cal-spinner"></span>
+            <p class="cal-note">Kalender wird eingerichtet</p>
+            <p class="cal-sub">Nach der Cal.com-Einrichtung erscheint hier<br>der buchbare Kalender von Enes Sanver.</p>
+          </div>
+        </div>
+        <div class="cal-divider"></div>
+        <div class="contact-direct">
+          <a href="mailto:info@sanver-facilityservice.de" class="contact-link">
+            <span>✉️</span> <span style="color:#e07b00;font-weight:700">[E-MAIL EINTRAGEN]</span>
+          </a>
+          <a href="tel:+49XXXXXXXXXX" class="contact-link">
+            <span>📞</span> <span style="color:#e07b00;font-weight:700">[TELEFONNUMMER EINTRAGEN]</span>
+          </a>
+          <a href="https://wa.me/49XXXXXXXXXX" class="contact-link">
+            <span>💬</span> <span style="color:#e07b00;font-weight:700">[WHATSAPP-NUMMER EINTRAGEN]</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" id="kontakt">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="media/cropped-sanver_logo_512x512.png" alt="Sanver Facility Service" />
+      </div>
+      <p>Professionelle Gebäudereinigung und Facility Management — gegründet 2026 von Enes Sanver. Frisch, erfahren und mit vollem Einsatz für unsere Kunden.</p>
+      <div class="footer-contacts">
+        <span><span>📍</span> <span style="color:#ffcc55;font-weight:600">[ADRESSE EINTRAGEN]</span></span>
+        <a href="tel:+49XXXXXXXXXX"><span>📞</span> <span style="color:#ffcc55;font-weight:600">[TELEFON EINTRAGEN]</span></a>
+        <a href="mailto:info@sanver-facilityservice.de"><span>✉️</span> <span style="color:#ffcc55;font-weight:600">[E-MAIL EINTRAGEN]</span></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Leistungen</h4>
+      <ul>
+        <li><a href="#leistungen">Büroreinigung</a></li>
+        <li><a href="#leistungen">Unterhaltsreinigung</a></li>
+        <li><a href="#leistungen">Grundreinigung</a></li>
+        <li><a href="#leistungen">Glasreinigung</a></li>
+        <li><a href="#leistungen">Desinfektion</a></li>
+        <li><a href="#leistungen">Winterdienst</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Unternehmen</h4>
+      <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#vorteile">Warum Sanver?</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#termin">Termin buchen</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+        <li><a href="agb.html">AGB</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© 2026 Sanver Facility Service · Alle Rechte vorbehalten</p>
+      <p>Tätig in Deutschland 🇩🇪 · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle?.addEventListener('click', () => links?.classList.toggle('open'));
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Cal.com embed (uncomment + configure after Cal.com is set up)
+  // const CAL_ORIGIN = 'https://cal.sanver-facilityservice.de';
+  // const CAL_SLUG   = 'enes-sanver/erstgespraech';
+  // (function(C,A,L){ ... })(window,"https://...", "init");
+  // Cal("init", { origin: CAL_ORIGIN });
+  // Cal("inline", { elementOrSelector: "#cal-embed", calLink: CAL_SLUG, layout: "month_view" });
+</script>
+<!-- ═══ WHATSAPP FLOATING BUTTON ═══ -->
+<a href="https://wa.me/49XXXXXXXXXX?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Reinigungsdienstleistungen."
+   class="wa-btn" aria-label="WhatsApp schreiben"
+   title="WhatsApp schreiben">
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.51 5.831L.057 23.57a.5.5 0 0 0 .609.61l5.819-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.006-1.371l-.36-.213-3.714.929.946-3.629-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<style>
+  .wa-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+  @media(max-width:480px){ .wa-btn{ bottom:20px; right:16px; } }
+</style>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  // guard against double-registration if script runs twice
+  if (toggle && !toggle._bound) {
+    toggle._bound = true;
+    toggle.addEventListener('click', () => links?.classList.toggle('open'));
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  }
+</script>
+</body>
+</html>

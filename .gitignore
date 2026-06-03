@@ -1,0 +1,25 @@
+# Build & Dependencies
+node_modules/
+dist/
+.astro/
+
+# Sensible Deployment-Dateien — NIE in GitHub
+deploy-commands.txt
+*.log
+deploy-log.txt
+
+# Interne Projektdateien — nicht für die Öffentlichkeit
+preview.html
+MANITU-UPLOAD-ANLEITUNG.html
+CHECKLISTE-LIVE-GANG.html
+DEPLOYMENT.md
+
+# Umgebungsvariablen & Deployment-Konfiguration
+.env
+.env.*
+!.env.example
+deploy.env
+
+# OS-Dateien
+.DS_Store
+Thumbs.db
