@@ -37,7 +37,7 @@ ServerSignature Off
   # Content Security Policy
   # Hinweis: 'unsafe-inline' für style/script wird benötigt (kein Build-Step)
   # Sobald Cal.com eingerichtet ist: cal.sanver-facilityservice.de ergänzen
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.eu; style-src 'self' 'unsafe-inline' https://cal.eu; img-src 'self' data: https:; font-src 'self' https://cal.eu; connect-src 'self' https://cal.eu; frame-src https://cal.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://cal.eu;"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.eu https://www.cal.eu; style-src 'self' 'unsafe-inline' https://cal.eu https://www.cal.eu; img-src 'self' data: https:; font-src 'self' https://cal.eu https://www.cal.eu; connect-src 'self' https://cal.eu https://www.cal.eu; frame-src https://cal.eu https://www.cal.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://cal.eu https://www.cal.eu;"
 
   # Server-Info verstecken
   Header unset X-Powered-By
