@@ -6,7 +6,7 @@ REM Try Python 3 first
 python --version >nul 2>&1
 IF %ERRORLEVEL% == 0 (
     echo Running on http://localhost:8080
-    start "" http://localhost:8080/preview.html
+    start "" http://localhost:8080/index.html
     python -m http.server 8080
     goto :end
 )
@@ -15,7 +15,7 @@ REM Try py launcher
 py --version >nul 2>&1
 IF %ERRORLEVEL% == 0 (
     echo Running on http://localhost:8080
-    start "" http://localhost:8080/preview.html
+    start "" http://localhost:8080/index.html
     py -m http.server 8080
     goto :end
 )
@@ -24,7 +24,7 @@ REM Try Node.js npx
 npx --version >nul 2>&1
 IF %ERRORLEVEL% == 0 (
     echo Running on http://localhost:8080
-    start "" http://localhost:8080/preview.html
+    start "" http://localhost:8080/index.html
     npx serve . -l 8080
     goto :end
 )

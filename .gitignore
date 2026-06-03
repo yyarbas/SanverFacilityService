@@ -3,6 +3,9 @@ node_modules/
 dist/
 .astro/
 
+# Test-Umgebung (Passwort in .htpasswd)
+test-env/.htpasswd
+
 # Sensible Deployment-Dateien — NIE in GitHub
 deploy-commands.txt
 *.log

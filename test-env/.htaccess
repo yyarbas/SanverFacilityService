@@ -1,0 +1,21 @@
+# ── Test-Umgebung — Passwortschutz ──────────────────────────
+# Nur für interne Tests — nicht öffentlich zugänglich
+AuthType Basic
+AuthName "Sanver Test-Umgebung"
+AuthUserFile /var/www/sanver-facilityservice.de/test/.htpasswd
+Require valid-user
+
+# Sicherheits-Header (gleiche wie Produktion)
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.eu; style-src 'self' 'unsafe-inline' https://cal.eu; img-src 'self' data: https:; font-src 'self' https://cal.eu; connect-src 'self' https://cal.eu; frame-src https://cal.eu; object-src 'none';"
+</IfModule>
+
+# Kein Caching in Test-Umgebung — immer frische Dateien
+<IfModule mod_headers.c>
+  Header always set Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
+
+Options -Indexes

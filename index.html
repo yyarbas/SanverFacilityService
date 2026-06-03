@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sanver Facility Service – Professionelle Gebäudereinigung und Facility Management in Deutschland. Frisch gegründet, erfahren und zuverlässig." />
+  <meta name="description" content="Sanver Facility Service – Professionelle Gebäudereinigung im Rhein-Main-Gebiet. Frankfurt am Main." />
   <title>Sanver Facility Service – Sauberkeit, die überzeugt</title>
   <link rel="canonical" href="https://www.sanver-facilityservice.de/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.sanver-facilityservice.de/" />
   <meta property="og:title" content="Sanver Facility Service – Sauberkeit, die überzeugt" />
-  <meta property="og:description" content="Professionelle Gebäudereinigung und Facility Management in Deutschland. Gegründet 2026 von Enes Sanver. Jetzt Termin vereinbaren." />
-  <meta property="og:image" content="https://www.sanver-facilityservice.de/media/sanver_logo_512x512.png" />
+  <meta property="og:description" content="Professionelle Gebäudereinigung im Rhein-Main-Gebiet. Gegründet 2026 von Enes Sanver in Frankfurt am Main. Jetzt Termin vereinbaren." />
+  <meta property="og:image" content="https://www.sanver-facilityservice.de/media/sanver-logo-hero.png" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="media/cropped-ChatGPT-Image-4.-Feb.-2026-15_23_19icon.png" />
-  <link rel="apple-touch-icon" href="media/sanver_logo_512x512.png" />
+  <link rel="apple-touch-icon" href="media/sanver-logo-hero.png" />
   <!-- No Google Fonts — system font stack used (GDPR-safe, zero external requests) -->
   <!-- Production Astro build uses @fontsource-variable/inter (self-hosted) -->
 
@@ -98,7 +98,7 @@
       box-shadow: 0 2px 16px rgba(27,58,122,0.07);
     }
     .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-    .logo img { height: 46px; width: auto; display: block; }
+    .logo img { height: 44px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
     .nav-links a {
       text-decoration: none; color: var(--gray-500); font-weight: 500;
@@ -175,8 +175,8 @@
     /* Hero right visual */
     .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-logo-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
       backdrop-filter: blur(20px);
       border-radius: 28px;
       padding: 52px 48px;
@@ -184,9 +184,9 @@
       position: relative; z-index: 1;
       text-align: center;
     }
-    .hero-logo-card img { width: 260px; height: auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
+    .hero-logo-card img { width: 260px; height: auto; }
     .hero-logo-card .tagline {
-      margin-top: 18px; color: rgba(255,255,255,0.6); font-size: .85rem;
+      margin-top: 18px; color: rgba(255,255,255,0.65); font-size: .85rem;
       font-style: italic; letter-spacing: .03em;
     }
 
@@ -459,8 +459,25 @@
       border: 1px solid var(--gray-100); transition: background .15s, border-color .15s;
     }
     .contact-link:hover { background: var(--blue-pale); border-color: var(--blue); }
+    .contact-link-wa {
+      background: #f0fdf4; border-color: #bbf7d0; color: #166534;
+    }
+    .contact-link-wa:hover { background: #dcfce7; border-color: #4ade80; }
+    .contact-link-wa svg { color: #25D366; }
     .contact-link span:first-child { font-size: 1.2rem; }
     @keyframes spin { to { transform: rotate(360deg); } }
+    .cal-toggle {
+      display: flex; gap: 0; padding: 16px 24px 0;
+    }
+    .cal-toggle-btn {
+      flex: 1; padding: 10px 16px; font-size: .88rem; font-weight: 600;
+      border: 1.5px solid var(--blue-pale); background: var(--gray-50);
+      color: var(--gray-500); cursor: pointer; transition: all .15s;
+    }
+    .cal-toggle-btn:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .cal-toggle-btn:last-child  { border-radius: 0 var(--radius) var(--radius) 0; border-left: none; }
+    .cal-toggle-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+    .cal-toggle-btn:hover:not(.active) { background: var(--blue-pale); color: var(--navy); }
     @media(max-width:900px){ .booking-inner{grid-template-columns:1fr;gap:48px;} }
 
     /* ════════════════════════════════
@@ -518,7 +535,7 @@
 <header class="nav-wrapper">
   <nav class="container nav">
     <a href="#" class="logo">
-      <img src="media/cropped-sanver_logo_512x512.png" alt="Sanver Facility Service" />
+      <img src="media/sanver-logo-nav.png" alt="Sanver Facility Service" />
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -575,11 +592,11 @@
         <span class="dot"></span> Jetzt verfügbar
       </div>
       <div class="hero-logo-card">
-        <img src="media/sanver_logo_512x512.png" alt="Sanver Facility Service Logo" />
+        <img src="media/sanver-logo-hero.png" alt="Sanver Facility Service Logo" />
         <p class="tagline">„Ihr Gebäude. Unsere Leidenschaft."</p>
       </div>
       <div class="hero-badge badge-br">
-        🇩🇪 Standort Deutschland
+        📍 Frankfurt · Rhein-Main-Gebiet
       </div>
     </div>
   </div>
@@ -654,7 +671,7 @@
     <div class="section-head">
       <span class="tag">Unsere Leistungen</span>
       <h2>Alles sauber. Alles aus einer Hand.</h2>
-      <p>Von der täglichen Büroreinigung bis zur Spezialreinigung — wir übernehmen alle Reinigungsaufgaben rund um Ihr Gebäude, damit Sie sich auf das Wesentliche konzentrieren können.</p>
+      <p>Von der täglichen Büroreinigung bis zur Grundreinigung — wir übernehmen alle Reinigungsaufgaben rund um Ihr Objekt im Rhein-Main-Gebiet, damit Sie sich auf das Wesentliche konzentrieren können.</p>
     </div>
 
     <div class="services-categories">
@@ -671,7 +688,7 @@
           <div class="service-card">
             <span class="svc-icon">🔄</span>
             <h4>Unterhaltsreinigung</h4>
-            <p>Regelmäßige, vertraglich vereinbarte Reinigung für dauerhaft gepflegte Gebäude. Wir sorgen für gleichbleibend hohe Sauberkeit — zuverlässig und diskret.</p>
+            <p>Regelmäßige, vertraglich vereinbarte Reinigung für dauerhaft gepflegte Objekte. Wir sorgen für gleichbleibend hohe Sauberkeit — zuverlässig und diskret.</p>
           </div>
           <div class="service-card">
             <span class="svc-icon">🏬</span>
@@ -681,7 +698,7 @@
           <div class="service-card">
             <span class="svc-icon">🍽️</span>
             <h4>Küchen & Kantinen</h4>
-            <p>Hygienegerechte Reinigung von Küchen, Kantinenbereichen und Aufenthaltsräumen nach HACCP-Standards — für Sauberkeit, die man schmeckt.</p>
+            <p>Hygienegerechte Reinigung von Küchen, Kantinenbereichen und Aufenthaltsräumen — für Sauberkeit, die man schmeckt.</p>
           </div>
           <div class="service-card">
             <span class="svc-icon">🚽</span>
@@ -696,9 +713,9 @@
         </div>
       </div>
 
-      <!-- SPEZIALREINIGUNG -->
+      <!-- WEITERE LEISTUNGEN -->
       <div class="service-category">
-        <h3><span>✨</span> Spezialreinigung</h3>
+        <h3><span>✨</span> Weitere Leistungen</h3>
         <div class="services-grid">
           <div class="service-card">
             <span class="svc-icon">🧹</span>
@@ -708,69 +725,22 @@
           <div class="service-card">
             <span class="svc-icon">🏗️</span>
             <h4>Bau­endreinigung</h4>
-            <p>Nach Neubau oder Umbau beseitigen wir Bauschutt, Gipsstaub, Klebereste und Schmutz — damit Ihr neues Objekt glänzend und übergabebereit ist.</p>
+            <p>Nach Neubau oder Umbau beseitigen wir Bauschutt, Gipsstaub, Klebereste und Schmutz — damit Ihr Objekt glänzend und übergabebereit ist.</p>
           </div>
-          <div class="service-card">
-            <span class="svc-icon">🪑</span>
-            <h4>Polster- & Teppich­reinigung</h4>
-            <p>Professionelle Tiefenreinigung von Teppichböden, Bürostühlen und Polstermöbeln mit leistungsstarker Sprühextraktionstechnik.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">🪨</span>
-            <h4>Stein- & Hartest­rich­pflege</h4>
-            <p>Kristallisation, Versiegelung und Pflege von Marmor, Naturstein, Granit und Hartbelag — für dauerhaft schöne und geschützte Böden.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">🦠</span>
-            <h4>Desinfektion & Hygiene</h4>
-            <p>Professionelle Desinfektionsreinigung für Arztpraxen, Pflegeeinrichtungen und sensible Bereiche — mit zertifizierten viruziden Mitteln.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">🏭</span>
-            <h4>Industrie­reinigung</h4>
-            <p>Reinigung von Produktionshallen, Maschinen und Industrieböden — auch bei laufendem Betrieb, mit speziellen Geräten und Methoden.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- GEBÄUDE & AUSSEN -->
-      <div class="service-category">
-        <h3><span>🌿</span> Gebäude & Außenanlagen</h3>
-        <div class="services-grid">
           <div class="service-card">
             <span class="svc-icon">🏠</span>
             <h4>Treppen­haus­reinigung</h4>
             <p>Regelmäßige Reinigung von Treppenhäusern, Aufzügen und Gemeinschaftsflächen in Wohn- und Geschäftshäusern — für ein gepflegtes Erscheinungsbild.</p>
           </div>
           <div class="service-card">
-            <span class="svc-icon">🧱</span>
-            <h4>Fassaden­reinigung</h4>
-            <p>Schonende Reinigung von Gebäudefassaden, Außenwänden und Eingangsbereichen mit professioneller Hochdrucktechnik.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">🅿️</span>
-            <h4>Parkplatz­reinigung</h4>
-            <p>Reinigung und Pflege von Pkw-Stellplätzen, Tiefgaragen und Zufahrten — sauber, sicher und gepflegt für Ihre Kunden und Mitarbeiter.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">❄️</span>
-            <h4>Winterdienst</h4>
-            <p>Zuverlässige Schneeräumung und Streuung auf Gehwegen, Einfahrten und Parkflächen — damit Ihre Verkehrssicherungspflicht erfüllt ist.</p>
-          </div>
-          <div class="service-card">
-            <span class="svc-icon">🌳</span>
-            <h4>Grünanlagenpflege</h4>
-            <p>Rasenmähen, Heckenschnitt, Laubblasen und Gartenpflege — wir halten Ihre Außenanlagen das ganze Jahr über in einwandfreiem Zustand.</p>
-          </div>
-          <div class="service-card">
             <span class="svc-icon">🗑️</span>
-            <h4>Abfallmanagement</h4>
-            <p>Leerung und Reinigung von Mülleimern, Entsorgung von Sondermüll und fachgerechte Wertstofftrennung gemäß den deutschen Kreislaufwirtschaftsstandards.</p>
+            <h4>Abfall­management</h4>
+            <p>Leerung und Reinigung von Mülleimern sowie fachgerechte Wertstofftrennung gemäß den deutschen Kreislaufwirtschaftsstandards.</p>
           </div>
         </div>
       </div>
 
-    </div><!-- /services-categories -->
+    </div>
   </div>
 </section>
 
@@ -870,7 +840,7 @@
         <li><span class="perk-check">✓</span> Angebot innerhalb von 24 Stunden</li>
         <li><span class="perk-check">✓</span> Flexibel — vor Ort, per Video oder Telefon</li>
       </ul>
-      <a href="tel:+49XXXXXXXXXX" class="btn btn-secondary">📞 Direkt anrufen <span style="font-size:.75rem;opacity:.7">[TELEFON EINTRAGEN]</span></a>
+      <a href="tel:+491779139257" class="btn btn-secondary">📞 Direkt anrufen <span style="font-size:.75rem;opacity:.7">+49 177 9139257</span></a>
     </div>
 
     <div class="booking-card">
@@ -879,24 +849,23 @@
         <p>Wählen Sie einen passenden Zeitslot in unserem Kalender</p>
       </div>
       <div class="booking-card-body">
-        <div id="cal-embed">
-          <div class="cal-spinner-wrap">
-            <span class="cal-spinner"></span>
-            <p class="cal-note">Kalender wird eingerichtet</p>
-            <p class="cal-sub">Nach der Cal.com-Einrichtung erscheint hier<br>der buchbare Kalender von Enes Sanver.</p>
-          </div>
-        </div>
+        <div id="cal-embed" style="min-height:580px"></div>
         <div class="cal-divider"></div>
         <div class="contact-direct">
           <a href="mailto:info@sanver-facilityservice.de" class="contact-link">
-            <span>✉️</span> <span style="color:#e07b00;font-weight:700">[E-MAIL EINTRAGEN]</span>
+            <span>✉️</span> info@sanver-facilityservice.de
           </a>
-          <a href="tel:+49XXXXXXXXXX" class="contact-link">
-            <span>📞</span> <span style="color:#e07b00;font-weight:700">[TELEFONNUMMER EINTRAGEN]</span>
+          <a href="tel:+491779139257" class="contact-link">
+            <span>📞</span> +49 177 9139257
           </a>
-          <a href="https://wa.me/49XXXXXXXXXX" class="contact-link">
-            <span>💬</span> <span style="color:#e07b00;font-weight:700">[WHATSAPP-NUMMER EINTRAGEN]</span>
+          <a href="https://wa.me/491779139257?text=Hallo%2C%20ich%20m%C3%B6chte%20einen%20Termin%20vereinbaren." class="contact-link contact-link-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="flex-shrink:0" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.51 5.831L.057 23.57a.5.5 0 0 0 .609.61l5.819-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.006-1.371l-.36-.213-3.714.929.946-3.629-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            <span>WhatsApp schreiben — 0177 9139257</span>
           </a>
+        </div>
         </div>
       </div>
     </div>
@@ -908,13 +877,13 @@
   <div class="container footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="media/cropped-sanver_logo_512x512.png" alt="Sanver Facility Service" />
+        <img src="media/sanver-logo-nav.png" alt="Sanver Facility Service" />
       </div>
-      <p>Professionelle Gebäudereinigung und Facility Management — gegründet 2026 von Enes Sanver. Frisch, erfahren und mit vollem Einsatz für unsere Kunden.</p>
+      <p>Professionelle Gebäudereinigung und Facility Management — Einzelunternehmen, gegründet 2026 von Enes Sanver. Verwurzelt in Frankfurt, tätig im Rhein-Main-Gebiet.</p>
       <div class="footer-contacts">
-        <span><span>📍</span> <span style="color:#ffcc55;font-weight:600">[ADRESSE EINTRAGEN]</span></span>
-        <a href="tel:+49XXXXXXXXXX"><span>📞</span> <span style="color:#ffcc55;font-weight:600">[TELEFON EINTRAGEN]</span></a>
-        <a href="mailto:info@sanver-facilityservice.de"><span>✉️</span> <span style="color:#ffcc55;font-weight:600">[E-MAIL EINTRAGEN]</span></a>
+        <span><span>📍</span> <span style="color:#ffcc55;font-weight:600">Schöffenstraße 28, 65933 Frankfurt am Main</span></span>
+        <a href="tel:+491779139257"><span>📞</span> +49 177 9139257</a>
+        <a href="mailto:info@sanver-facilityservice.de"><span>✉️</span> <span style="color:#ffcc55;font-weight:600">info@sanver-facilityservice.de</span></a>
       </div>
     </div>
 
@@ -945,66 +914,57 @@
       <ul>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
-        <li><a href="agb.html">AGB</a></li>
+        
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p>© 2026 Sanver Facility Service · Alle Rechte vorbehalten</p>
-      <p>Tätig in Deutschland 🇩🇪 · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      <p>© 2026 Sanver Facility Service · Enes Sanver · Einzelunternehmen</p>
+      <p>Frankfurt am Main · Rhein-Main-Gebiet 🇩🇪 · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
     </div>
   </div>
 </footer>
 
 <script>
-  // Mobile nav
+  // ── Mobile Nav ──────────────────────────────
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   toggle?.addEventListener('click', () => links?.classList.toggle('open'));
   links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-  // Cal.com embed (uncomment + configure after Cal.com is set up)
-  // const CAL_ORIGIN = 'https://cal.sanver-facilityservice.de';
-  // const CAL_SLUG   = 'enes-sanver/erstgespraech';
-  // (function(C,A,L){ ... })(window,"https://...", "init");
-  // Cal("init", { origin: CAL_ORIGIN });
-  // Cal("inline", { elementOrSelector: "#cal-embed", calLink: CAL_SLUG, layout: "month_view" });
-</script>
-<!-- ═══ WHATSAPP FLOATING BUTTON ═══ -->
-<a href="https://wa.me/49XXXXXXXXXX?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Reinigungsdienstleistungen."
-   class="wa-btn" aria-label="WhatsApp schreiben"
-   title="WhatsApp schreiben">
-  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.51 5.831L.057 23.57a.5.5 0 0 0 .609.61l5.819-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.006-1.371l-.36-.213-3.714.929.946-3.629-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
-  </svg>
-</a>
+  // ── Cal.eu Embed ────────────────────────────
+  (function(C,A,L){
+    let p=function(a,ar){a.q.push(ar);};
+    let d=C.document;
+    C.Cal=C.Cal||function(){
+      let cal=C.Cal,ar=arguments;
+      if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}
+      if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];typeof ns==="string"?(cal.ns[ns]=api)&&p(api,ar):p(cal,ar);return;}
+      p(cal,ar);
+    };
+  })(window,"https://cal.eu/embed/embed.js","init");
 
-<style>
-  .wa-btn {
-    position: fixed; bottom: 28px; right: 28px; z-index: 999;
-    width: 58px; height: 58px; border-radius: 50%;
-    background: #25D366; color: white;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-    text-decoration: none;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
-  @media(max-width:480px){ .wa-btn{ bottom:20px; right:16px; } }
-</style>
+  Cal("init", { origin: "https://cal.eu" });
 
-<script>
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  // guard against double-registration if script runs twice
-  if (toggle && !toggle._bound) {
-    toggle._bound = true;
-    toggle.addEventListener('click', () => links?.classList.toggle('open'));
-    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-  }
-</script>
-</body>
-</html>
+  Cal("inline", {
+    elementOrSelector: "#cal-embed",
+    calLink: "sanver-facilityservice/30min",
+    layout: "month_view"
+  });
+
+  Cal("ui", {
+    styles: { branding: { brandColor: "#1B3A7A" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+
+  // ── Toggle 15min / 30min ────────────────────
+  function switchCal(slug, btn) {
+    document.querySelectorAll('.cal-toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('cal-embed').innerHTML = '';
+    Cal("inline", {
+      elementOrSelector: "#cal-embed",
+      calLink: "sanver-facilityservice/" + slug

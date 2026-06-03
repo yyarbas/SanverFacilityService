@@ -7,6 +7,23 @@ echo  GitHub main branch → Manitu Server
 echo ============================================
 echo.
 
+REM ── Ziel wählen ─────────────────────────────
+echo Wo soll deployed werden?
+echo   [p] PRODUKTION  (sanver-facilityservice.de)
+echo   [t] TEST        (sanver-facilityservice.de/test/)
+echo.
+set /p TARGET="Auswahl [p/t]: "
+if /i "%TARGET%"=="t" (
+    set DEPLOY_PATH=/sanver-facilityservice.de/test
+    echo.
+    echo [TEST-Modus] Ziel: /test/
+) else (
+    set DEPLOY_PATH=/sanver-facilityservice.de
+    echo.
+    echo [PRODUKTION] Ziel: /
+)
+echo.
+
 REM ── Feste Konfiguration ────────────────────
 set REPO=https://github.com/yyarbas/SanverFacilityService.git
 set BRANCH=main
@@ -47,19 +64,12 @@ if %ERRORLEVEL% neq 0 (
 
 REM ── Schritt 1: GitHub → lokal ──────────────
 echo [1/3] Lade aktuellen Stand von GitHub...
-echo       Branch: %BRANCH%
-echo       Repo:   %REPO%
-echo.
-
 if exist "%TMPDIR%\.git" (
-    echo Repo bereits vorhanden - pull...
     git -C "%TMPDIR%" fetch origin %BRANCH% --depth 1 --quiet
     git -C "%TMPDIR%" reset --hard origin/%BRANCH% --quiet
 ) else (
-    echo Klone Repository...
     git clone --depth 1 --branch %BRANCH% %REPO% "%TMPDIR%" --quiet
 )
-
 if %ERRORLEVEL% neq 0 (
     echo [FEHLER] GitHub konnte nicht erreicht werden.
     pause & exit /b 1
@@ -73,12 +83,20 @@ echo [2/3] Erstelle Upload-Konfiguration...
 echo option batch abort
 echo option confirm off
 echo open sftp://%FTP_USER%:%FTP_PASS%@%FTP_HOST%:%FTP_PORT% -hostkey=*
-echo cd /sanver-facilityservice.de
+echo cd %DEPLOY_PATH%
+
+if /i "%TARGET%"=="t" (
+echo # Test-Umgebung: auch .htaccess und .htpasswd hochladen
+echo put "%TMPDIR%\facility-service\test-env\.htaccess" .htaccess
+echo put "%TMPDIR%\facility-service\test-env\.htpasswd" .htpasswd
+) else (
+echo put "%TMPDIR%\facility-service\.htaccess" .htaccess
+)
+
 echo lcd "%TMPDIR%\facility-service"
 echo put index.html
 echo put impressum.html
 echo put datenschutz.html
-echo put agb.html
 echo put .htaccess
 echo mirror -R media media
 echo put public\robots.txt robots.txt
@@ -89,31 +107,38 @@ echo exit
 echo [OK] Konfiguration erstellt.
 echo.
 
-REM ── Schritt 3: Upload zu Manitu ────────────
-echo [3/3] Lade auf Manitu hoch...
-echo       Server: %FTP_HOST% (SFTP Port %FTP_PORT%)
-echo.
-
+REM ── Schritt 3: Upload ──────────────────────
+echo [3/3] Lade hoch...
 %WINSCP% /script="%TEMP%\sanver-winscp.txt" /log="%TEMP%\sanver-deploy.log"
 
 if %ERRORLEVEL% == 0 (
     echo.
     echo ============================================
-    echo  Erfolgreich deployed!
-    echo  https://www.sanver-facilityservice.de
+    if /i "%TARGET%"=="t" (
+        echo  Test-Umgebung bereitgestellt!
+        echo  URL: https://www.sanver-facilityservice.de/test/
+        echo  Benutzer: test
+        echo  Passwort: sanver2026
+    ) else (
+        echo  Erfolgreich deployed!
+        echo  https://www.sanver-facilityservice.de
+    )
     echo ============================================
     echo.
-    set /p OPEN="Seite im Browser oeffnen? [j/n]: "
-    if /i "%OPEN%"=="j" start https://www.sanver-facilityservice.de
+    set /p OPEN="Im Browser oeffnen? [j/n]: "
+    if /i "%OPEN%"=="j" (
+        if /i "%TARGET%"=="t" (
+            start https://www.sanver-facilityservice.de/test/
+        ) else (
+            start https://www.sanver-facilityservice.de
+        )
+    )
 ) else (
-    echo.
     echo [FEHLER] Upload fehlgeschlagen.
-    echo Log-Datei: %TEMP%\sanver-deploy.log
+    echo Log: %TEMP%\sanver-deploy.log
     start %TEMP%\sanver-deploy.log
 )
 
-REM Temp-Skript sofort loeschen (Passwort-Sicherheit)
 del "%TEMP%\sanver-winscp.txt" >nul 2>&1
-
 pause
 endlocal
