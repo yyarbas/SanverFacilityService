@@ -1,0 +1,89 @@
+name: Deploy → Manitu
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    name: ${{ github.ref_name == 'main' && 'Produktion' || 'Test' }} Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # ── 1. Code holen ──────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Ziel-Pfad setzen ────────────────────────────────
+      - name: Umgebung konfigurieren
+        id: config
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "remote_path=/htdocs/sanver-facilityservice.de123"  >> $GITHUB_OUTPUT
+            echo "label=PRODUKTION"                                   >> $GITHUB_OUTPUT
+            echo "url=https://www.sanver-facilityservice.de"         >> $GITHUB_OUTPUT
+          else
+            echo "remote_path=/htdocs/sanver-facilityservice.de123/test" >> $GITHUB_OUTPUT
+            echo "label=TEST"                                             >> $GITHUB_OUTPUT
+            echo "url=https://www.sanver-facilityservice.de/test/"       >> $GITHUB_OUTPUT
+          fi
+
+      # ── 3. Deploy-Ordner vorbereiten ───────────────────────
+      - name: Dateien vorbereiten
+        run: |
+          mkdir -p deploy
+
+          # Website-Dateien
+          cp index.html impressum.html datenschutz.html agb.html deploy/
+          cp -r media deploy/
+
+          # robots.txt + sitemap aus public/ in Root
+          cp public/robots.txt  deploy/robots.txt
+          cp public/sitemap.xml deploy/sitemap.xml
+
+          # .htaccess je nach Branch
+          if [ "${{ github.ref_name }}" = "dev" ]; then
+            cp pipeline/test-env/.htaccess deploy/.htaccess
+            # .htpasswd aus GitHub Secret
+            echo "${{ secrets.TEST_HTPASSWD }}" > deploy/.htpasswd
+          else
+            cp .htaccess deploy/.htaccess
+          fi
+
+          echo "Deploy-Ordner Inhalt:"
+          ls -la deploy/
+
+      # ── 4. Upload via SFTP ─────────────────────────────────
+      - name: lftp installieren
+        run: sudo apt-get install -y lftp
+
+      - name: Upload zu Manitu
+        env:
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set sftp:auto-confirm yes;
+            set net:timeout 30;
+            set net:max-retries 3;
+            set net:reconnect-interval-base 5;
+            open sftp://${{ secrets.FTP_USER }}:$FTP_PASS@${{ secrets.FTP_HOST }}:${{ secrets.FTP_PORT }};
+            mirror --reverse --delete --verbose --exclude='.git' \
+              deploy/ ${{ steps.config.outputs.remote_path }}/;
+            quit
+          "
+
+      # ── 5. Zusammenfassung ─────────────────────────────────
+      - name: Deploy-Zusammenfassung
+        run: |
+          echo "## ✅ Deploy erfolgreich" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| | |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| **Umgebung** | ${{ steps.config.outputs.label }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Branch** | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Commit** | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **URL** | ${{ steps.config.outputs.url }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Autor** | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
