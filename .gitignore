@@ -3,25 +3,32 @@ node_modules/
 dist/
 .astro/
 
-# Test-Umgebung (Passwort in .htpasswd)
-test-env/.htpasswd
+# Pipeline-Ordner — sensible Dateien
+pipeline/deploy.env
+pipeline/test-env/.htpasswd
+pipeline/*.log
 
-# Sensible Deployment-Dateien — NIE in GitHub
+# Alte Root-Dateien (durch pipeline/ ersetzt — können gelöscht werden)
+deploy.bat
+deploy.env
+deploy.env.example
 deploy-commands.txt
-*.log
-deploy-log.txt
+git-push.bat
+git-clean-history.bat
+git-dev-branch.bat
+start-preview.bat
+test-env/
 
-# Interne Projektdateien — nicht für die Öffentlichkeit
+# Interne Projektdateien
 preview.html
 MANITU-UPLOAD-ANLEITUNG.html
 CHECKLISTE-LIVE-GANG.html
 DEPLOYMENT.md
 
-# Umgebungsvariablen & Deployment-Konfiguration
+# Umgebungsvariablen
 .env
 .env.*
 !.env.example
-deploy.env
 
 # OS-Dateien
 .DS_Store
