@@ -20,7 +20,6 @@
 
   <!-- Security meta tags -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <style>
     :root {
@@ -944,9 +943,9 @@
       if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];typeof ns==="string"?(cal.ns[ns]=api)&&p(api,ar):p(cal,ar);return;}
       p(cal,ar);
     };
-  })(window,"https://cal.eu/embed/embed.js","init");
+  })(window,"https://www.cal.eu/embed/embed.js","init");
 
-  Cal("init", { origin: "https://cal.eu" });
+  Cal("init", { origin: "https://www.cal.eu" });
 
   Cal("inline", {
     elementOrSelector: "#cal-embed",
