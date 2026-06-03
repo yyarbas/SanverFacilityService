@@ -848,7 +848,20 @@
         <p>Wählen Sie einen passenden Zeitslot in unserem Kalender</p>
       </div>
       <div class="booking-card-body">
-        <div id="cal-embed" style="min-height:580px"></div>
+        <div class="cal-toggle">
+          <button class="cal-toggle-btn active" onclick="switchCal('30min',this)">30 Min — Erstgespräch</button>
+          <button class="cal-toggle-btn" onclick="switchCal('15min',this)">15 Min — Kurze Anfrage</button>
+        </div>
+        <iframe
+          id="cal-embed"
+          src="https://www.cal.eu/sanver-facilityservice/30min?embed=true&embedType=inline&theme=light"
+          width="100%"
+          height="620"
+          frameborder="0"
+          style="border:none;display:block;"
+          title="Termin buchen"
+          loading="lazy"
+        ></iframe>
         <div class="cal-divider"></div>
         <div class="contact-direct">
           <a href="mailto:info@sanver-facilityservice.de" class="contact-link">
@@ -934,30 +947,6 @@
   links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
   // ── Cal.eu Embed ────────────────────────────
-  (function(C,A,L){
-    let p=function(a,ar){a.q.push(ar);};
-    let d=C.document;
-    C.Cal=C.Cal||function(){
-      let cal=C.Cal,ar=arguments;
-      if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}
-      if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];typeof ns==="string"?(cal.ns[ns]=api)&&p(api,ar):p(cal,ar);return;}
-      p(cal,ar);
-    };
-  })(window,"https://www.cal.eu/embed/embed.js","init");
-
-  Cal("init", { origin: "https://www.cal.eu" });
-
-  Cal("inline", {
-    elementOrSelector: "#cal-embed",
-    calLink: "sanver-facilityservice/30min",
-    layout: "month_view"
-  });
-
-  Cal("ui", {
-    styles: { branding: { brandColor: "#1B3A7A" } },
-    hideEventTypeDetails: false,
-    layout: "month_view"
-  });
 
   // ── Toggle 15min / 30min ────────────────────
   function switchCal(slug, btn) {
