@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://ihre-domain.de',
+  site: process.env.SITE_URL || 'https://www.sanver-facilityservice.de',
   compressHTML: true,
 });
