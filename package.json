@@ -11,5 +11,17 @@
   "dependencies": {
     "astro": "^4.8.0",
     "@fontsource-variable/inter": "^5.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@lhci/cli": "^0.14.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "playwright test",
+    "test:lighthouse": "lhci autorun"
   }
 }
