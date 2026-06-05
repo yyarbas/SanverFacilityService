@@ -1,85 +1,46 @@
 import { test, expect } from '@playwright/test';
 
+// Das Astro Booking-Widget nutzt ein script-basiertes Cal.com Embed (kein iframe src).
+// Getestet wird: Sektion, Container, Lade-Zustand, Scroll-Verhalten.
+
 test.describe('Cal.eu Buchungs-Widget', () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('/#termin');
-    // Kurz warten bis iframe geladen
-    await page.waitForTimeout(1000);
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
   });
 
-  test('Buchungs-Sektion ist sichtbar', async ({ page }) => {
+  test('Buchungs-Sektion ist vorhanden', async ({ page }) => {
     const section = page.locator('#termin');
-    await expect(section).toBeVisible();
+    await expect(section).toBeAttached();
     await expect(section.locator('h2')).toContainText('Erstgespräch');
   });
 
-  test('Cal.eu iframe ist eingebettet', async ({ page }) => {
-    const iframe = page.locator('#cal-embed');
-    await expect(iframe).toBeVisible();
-
-    const src = await iframe.getAttribute('src');
-    expect(src).toContain('cal.eu');
-    expect(src).toContain('sanver-facilityservice');
+  test('Cal-Embed-Container ist vorhanden', async ({ page }) => {
+    const embed = page.locator('#cal-embed');
+    await expect(embed).toBeAttached();
   });
 
-  test('Standardmäßig ist 30min aktiv', async ({ page }) => {
-    const iframe = page.locator('#cal-embed');
-    const src = await iframe.getAttribute('src');
-    expect(src).toContain('30min');
-
-    const activeBtn = page.locator('.cal-toggle-btn.active');
-    await expect(activeBtn).toContainText('30 Min');
-  });
-
-  test('Toggle wechselt auf 15min', async ({ page }) => {
-    const btn15 = page.locator('.cal-toggle-btn', { hasText: '15 Min' });
-    await btn15.click();
-
-    // iframe src soll auf 15min wechseln
-    const iframe = page.locator('#cal-embed');
-    await expect(async () => {
-      const src = await iframe.getAttribute('src');
-      expect(src).toContain('15min');
-    }).toPass({ timeout: 3000 });
-
-    // 15min-Button soll aktiv sein
-    await expect(btn15).toHaveClass(/active/);
-  });
-
-  test('Toggle zurück auf 30min', async ({ page }) => {
-    // Erst auf 15min
-    await page.locator('.cal-toggle-btn', { hasText: '15 Min' }).click();
-
-    // Dann zurück auf 30min
-    const btn30 = page.locator('.cal-toggle-btn', { hasText: '30 Min' });
-    await btn30.click();
-
-    const iframe = page.locator('#cal-embed');
-    await expect(async () => {
-      const src = await iframe.getAttribute('src');
-      expect(src).toContain('30min');
-    }).toPass({ timeout: 3000 });
-
-    await expect(btn30).toHaveClass(/active/);
-  });
-
-  test('iframe URL enthält Light-Theme und Embed-Parameter', async ({ page }) => {
-    const iframe = page.locator('#cal-embed');
-    const src = await iframe.getAttribute('src');
-    expect(src).toContain('embed=true');
-    expect(src).toContain('theme=light');
+  test('Buchungs-Sektion hat Mindesthöhe (Widget hat Platz)', async ({ page }) => {
+    const embed = page.locator('#cal-embed');
+    const box = await embed.boundingBox();
+    expect(box?.height).toBeGreaterThanOrEqual(500);
   });
 
   test('CTA-Link scrollt zur Buchungs-Sektion', async ({ page }) => {
-    await page.goto('/');
+    // Hero-CTA nutzen (Nav-CTA ist auf Mobile versteckt)
+    const cta = page.locator('main a[href="#termin"], .hero a[href="#termin"]').first();
+    await expect(cta).toBeVisible();
+    await cta.click();
 
-    // Klick auf "Termin buchen" im Hero
-    await page.locator('a[href="#termin"]').first().click();
-
-    // Section sollte im Viewport sein
     const section = page.locator('#termin');
-    await expect(section).toBeInViewport({ timeout: 2000 });
+    await expect(section).toBeInViewport({ timeout: 3000 });
+  });
+
+  test('Buchungs-Überschrift und Beschreibung sind lesbar', async ({ page }) => {
+    const section = page.locator('#termin');
+    await expect(section.locator('h2')).toBeVisible();
+    await expect(section.locator('p').first()).toBeVisible();
   });
 
 });

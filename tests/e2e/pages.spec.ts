@@ -20,14 +20,14 @@ test.describe('Unterseiten', () => {
     await expect(page.locator('h1')).toBeVisible();
   });
 
-  test('Footer-Links zu Impressum und Datenschutz funktionieren', async ({ page }) => {
+  test('Footer-Link zu Impressum funktioniert', async ({ page }) => {
     await page.goto('/');
-
     await page.locator('footer a[href*="impressum"]').click();
     await expect(page).toHaveURL(/impressum/);
+  });
 
-    await page.goBack();
-
+  test('Footer-Link zu Datenschutz funktioniert', async ({ page }) => {
+    await page.goto('/');
     await page.locator('footer a[href*="datenschutz"]').click();
     await expect(page).toHaveURL(/datenschutz/);
   });
