@@ -68,17 +68,20 @@ jobs:
           FTP_PORT: ${{ secrets.FTP_PORT }}
           REMOTE_PATH: ${{ steps.config.outputs.remote_path }}
         run: |
-          lftp -u "$FTP_USER,$FTP_PASS" \
-            -e "
-              set sftp:auto-confirm yes;
-              set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p $FTP_PORT';
-              set net:timeout 30;
-              set net:max-retries 3;
-              set net:reconnect-interval-base 5;
-              mirror --reverse --delete --verbose --exclude='.git' deploy/ $REMOTE_PATH/;
-              quit
-            " \
-            sftp://$FTP_HOST
+          # lftp-Skript in Datei schreiben (Variablen werden korrekt expandiert)
+          cat > /tmp/deploy.lftp << EOF
+          set sftp:auto-confirm yes
+          set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${FTP_PORT}"
+          set net:timeout 30
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          open sftp://${FTP_USER}:${FTP_PASS}@${FTP_HOST}
+          mirror --reverse --delete --verbose --exclude=".git" deploy/ ${REMOTE_PATH}/
+          quit
+          EOF
+
+          echo "Verbinde mit ${FTP_HOST}:${FTP_PORT} als ${FTP_USER}..."
+          lftp -f /tmp/deploy.lftp
 
       # ── 5. Zusammenfassung ─────────────────────────────────
       - name: Deploy-Zusammenfassung
