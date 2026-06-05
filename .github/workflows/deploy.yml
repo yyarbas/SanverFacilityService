@@ -71,14 +71,14 @@ jobs:
           lftp -u "$FTP_USER,$FTP_PASS" \
             -e "
               set sftp:auto-confirm yes;
+              set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p $FTP_PORT';
               set net:timeout 30;
               set net:max-retries 3;
               set net:reconnect-interval-base 5;
-              set ftp:ssl-allow no;
               mirror --reverse --delete --verbose --exclude='.git' deploy/ $REMOTE_PATH/;
               quit
             " \
-            sftp://$FTP_HOST:$FTP_PORT
+            sftp://$FTP_HOST
 
       # ── 5. Zusammenfassung ─────────────────────────────────
       - name: Deploy-Zusammenfassung
