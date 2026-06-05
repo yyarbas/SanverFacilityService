@@ -57,23 +57,28 @@ jobs:
           ls -la deploy/
 
       # ── 4. Upload via SFTP ─────────────────────────────────
-      - name: lftp installieren
-        run: sudo apt-get install -y lftp
+      - name: lftp + sshpass installieren
+        run: sudo apt-get install -y lftp sshpass
 
       - name: Upload zu Manitu
         env:
+          FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+          REMOTE_PATH: ${{ steps.config.outputs.remote_path }}
         run: |
-          lftp -c "
-            set sftp:auto-confirm yes;
-            set net:timeout 30;
-            set net:max-retries 3;
-            set net:reconnect-interval-base 5;
-            open sftp://${{ secrets.FTP_USER }}:$FTP_PASS@${{ secrets.FTP_HOST }}:${{ secrets.FTP_PORT }};
-            mirror --reverse --delete --verbose --exclude='.git' \
-              deploy/ ${{ steps.config.outputs.remote_path }}/;
-            quit
-          "
+          lftp -u "$FTP_USER,$FTP_PASS" \
+            -e "
+              set sftp:auto-confirm yes;
+              set net:timeout 30;
+              set net:max-retries 3;
+              set net:reconnect-interval-base 5;
+              set ftp:ssl-allow no;
+              mirror --reverse --delete --verbose --exclude='.git' deploy/ $REMOTE_PATH/;
+              quit
+            " \
+            sftp://$FTP_HOST:$FTP_PORT
 
       # ── 5. Zusammenfassung ─────────────────────────────────
       - name: Deploy-Zusammenfassung
