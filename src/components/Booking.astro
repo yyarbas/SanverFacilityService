@@ -59,21 +59,19 @@ const CAL_SLUG = 'facility-pro/erstgespraech';    // <-- update with your userna
     };
   })(window, "https://cal.com/embed/embed.js", "init");
 
-  if (CAL_ORIGIN && !CAL_ORIGIN.includes('ihre-domain')) {
-    Cal("init", { origin: CAL_ORIGIN });
+  Cal("init", { origin: CAL_ORIGIN });
 
-    Cal("inline", {
-      elementOrSelector: "#cal-embed",
-      calLink: CAL_SLUG,
-      layout: "month_view",
-    });
+  Cal("inline", {
+    elementOrSelector: "#cal-embed",
+    calLink: CAL_SLUG,
+    layout: "month_view",
+  });
 
-    Cal("ui", {
-      styles: { branding: { brandColor: "#1e5fc2" } },
-      hideEventTypeDetails: false,
-      layout: "month_view",
-    });
-  }
+  Cal("ui", {
+    styles: { branding: { brandColor: "#1e5fc2" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
 </script>
 
 <style>
