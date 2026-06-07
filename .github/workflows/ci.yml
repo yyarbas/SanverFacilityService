@@ -7,7 +7,40 @@ on:
     branches: [main, dev]
 
 jobs:
-  # ── Lighthouse CI ──────────────────────────────────────────
+  # ── 1. E2E Tests mit Playwright ────────────────────────────
+  e2e:
+    name: Playwright E2E Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm install
+
+      - name: Playwright Browser installieren
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright Tests ausführen
+        run: npx playwright test
+
+      - name: Testergebnis hochladen (bei Fehler)
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ── 2. Lighthouse CI ───────────────────────────────────────
   lighthouse:
     name: Lighthouse Qualitätsprüfung
     runs-on: ubuntu-latest
