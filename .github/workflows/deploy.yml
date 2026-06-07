@@ -1,27 +1,30 @@
 name: Deploy → Manitu
 
 on:
-  push:
-    branches:
-      - main
-      - dev
+  workflow_run:
+    workflows: ["CI — Tests & Qualität"]
+    types: [completed]
+    branches: [main, dev]
 
 jobs:
   deploy:
-    name: ${{ github.ref_name == 'main' && 'Produktion' || 'Test' }} Deploy
+    name: ${{ github.event.workflow_run.head_branch == 'main' && 'Produktion' || 'Test' }} Deploy
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    if: github.event.workflow_run.conclusion == 'success'
 
     steps:
       # ── 1. Code holen ──────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       # ── 2. Ziel-Pfad setzen ────────────────────────────────
       - name: Umgebung konfigurieren
         id: config
         run: |
-          if [ "${{ github.ref_name }}" = "main" ]; then
+          if [ "${{ github.event.workflow_run.head_branch }}" = "main" ]; then
             echo "remote_path=/htdocs/sanver-facilityservice.de123"  >> $GITHUB_OUTPUT
             echo "label=PRODUKTION"                                   >> $GITHUB_OUTPUT
             echo "url=https://www.sanver-facilityservice.de"         >> $GITHUB_OUTPUT
@@ -45,7 +48,7 @@ jobs:
           cp public/sitemap.xml deploy/sitemap.xml
 
           # .htaccess je nach Branch
-          if [ "${{ github.ref_name }}" = "dev" ]; then
+          if [ "${{ github.event.workflow_run.head_branch }}" = "dev" ]; then
             cp pipeline/test-env/.htaccess deploy/.htaccess
             # .htpasswd aus GitHub Secret
             echo "${{ secrets.TEST_HTPASSWD }}" > deploy/.htpasswd
@@ -75,7 +78,7 @@ jobs:
           set net:timeout 30
           set net:max-retries 3
           set net:reconnect-interval-base 5
-          open sftp://${FTP_USER}:${FTP_PASS}@${FTP_HOST}
+          open -p ${FTP_PORT} -u ${FTP_USER},${FTP_PASS} sftp://${FTP_HOST}
           mirror --reverse --delete --verbose --exclude=".git" deploy/ ${REMOTE_PATH}/
           quit
           EOF
@@ -91,7 +94,7 @@ jobs:
           echo "| | |" >> $GITHUB_STEP_SUMMARY
           echo "|---|---|" >> $GITHUB_STEP_SUMMARY
           echo "| **Umgebung** | ${{ steps.config.outputs.label }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Branch** | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Commit** | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Branch** | \`${{ github.event.workflow_run.head_branch }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Commit** | \`${{ github.event.workflow_run.head_sha }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| **URL** | ${{ steps.config.outputs.url }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Autor** | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Autor** | ${{ github.event.workflow_run.triggering_actor.login }} |" >> $GITHUB_STEP_SUMMARY
