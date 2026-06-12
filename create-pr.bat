@@ -110,8 +110,7 @@ echo.
 echo  ============================================
 echo   Naechste Schritte:
 echo   1. PR auf GitHub pruefen/bestaetigen
-echo   2. Nach Merge: pipeline\deploy.bat [p]
-echo      um main auf Produktion zu deployen
+echo   2. Nach Merge: CI/Deploy laeuft automatisch via GitHub Actions
 echo  ============================================
 echo.
 pause

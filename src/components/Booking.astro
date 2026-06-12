@@ -1,131 +1,121 @@
 ---
-// Replace CAL_USERNAME with your Cal.com self-hosted username/event slug
-// e.g. "max-mustermann/erstgespraech"
-// Your self-hosted domain goes in CAL_ORIGIN
-const CAL_ORIGIN = 'https://cal.ihre-domain.de'; // <-- update after Cal.com setup
-const CAL_SLUG = 'facility-pro/erstgespraech';    // <-- update with your username/slug
 ---
 <section id="termin" class="booking">
-  <div class="container">
-    <div class="booking-header">
-      <span class="section-label">Termin buchen</span>
+  <div class="container booking-inner">
+    <div class="booking-info">
+      <span class="tag">Termin buchen</span>
       <h2>Kostenloses Erstgespräch vereinbaren</h2>
-      <p>
-        Wählen Sie direkt einen freien Termin in unserem Kalender — kein Telefon, kein Warten. Wir melden uns pünktlich bei Ihnen.
-      </p>
+      <p>Kein langes Hin und Her. Buchen Sie direkt einen Termin — wir besprechen Ihr Objekt, Ihre Anforderungen und machen Ihnen ein unverbindliches Angebot.</p>
+      <ul class="booking-perks">
+        <li><span class="perk-check">✓</span> Kostenlos &amp; unverbindlich</li>
+        <li><span class="perk-check">✓</span> Persönlicher Gesprächspartner: Enes Sanver</li>
+        <li><span class="perk-check">✓</span> Angebot innerhalb von 24 Stunden</li>
+        <li><span class="perk-check">✓</span> Flexibel — vor Ort, per Video oder Telefon</li>
+      </ul>
+      <a href="tel:+491779139257" class="btn btn-secondary">📞 Direkt anrufen <span style="font-size:.75rem;opacity:.7">+49 177 9139257</span></a>
     </div>
 
-    <!-- Cal.com inline embed -->
-    <div class="cal-wrapper">
-      <div id="cal-embed" style="min-height: 600px;">
-        <!-- Cal.com embed loads here via script below -->
-        <div class="cal-placeholder">
-          <div class="cal-loading">
-            <span class="cal-spinner"></span>
-            <p>Kalender wird geladen…</p>
-            <p class="cal-fallback">
-              Noch kein Termin möglich? Schreiben Sie uns direkt:
-              <a href="mailto:info@facilityprogroup.de">info@facilityprogroup.de</a>
-            </p>
-          </div>
+    <div class="booking-card">
+      <div class="booking-card-header">
+        <h3>📅 Termin wählen</h3>
+        <p>Wählen Sie einen passenden Zeitslot in unserem Kalender</p>
+      </div>
+      <div class="booking-card-body">
+        <div class="cal-toggle">
+          <button class="cal-toggle-btn active" onclick="switchCal('30min',this)">30 Min — Erstgespräch</button>
+          <button class="cal-toggle-btn" onclick="switchCal('15min',this)">15 Min — Kurze Anfrage</button>
+        </div>
+        <iframe
+          id="cal-embed"
+          src="https://www.cal.eu/sanver-facilityservice/30min?embed=true&embedType=inline&theme=light"
+          width="100%"
+          height="620"
+          style="border:none;display:block;"
+          title="Termin buchen"
+          loading="lazy"
+        ></iframe>
+        <div class="cal-divider"></div>
+        <div class="contact-direct">
+          <a href="mailto:info@sanver-facilityservice.de" class="contact-link">
+            <span>✉️</span> info@sanver-facilityservice.de
+          </a>
+          <a href="tel:+491779139257" class="contact-link">
+            <span>📞</span> +49 177 9139257
+          </a>
+          <a href="https://wa.me/491779139257?text=Hallo%2C%20ich%20m%C3%B6chte%20einen%20Termin%20vereinbaren." class="contact-link contact-link-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="flex-shrink:0" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.51 5.831L.057 23.57a.5.5 0 0 0 .609.61l5.819-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.006-1.371l-.36-.213-3.714.929.946-3.629-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            <span>WhatsApp schreiben — 0177 9139257</span>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Cal.com embed script (self-hosted) -->
-<script is:inline define:vars={{ CAL_ORIGIN, CAL_SLUG }}>
-  (function (C, A, L) {
-    let p = function (a, ar) { a.q.push(ar); };
-    let d = C.document;
-    C.Cal = C.Cal || function () {
-      let cal = C.Cal;
-      let ar = arguments;
-      if (!cal.loaded) {
-        cal.ns = {};
-        cal.q = cal.q || [];
-        d.head.appendChild(d.createElement("script")).src = CAL_ORIGIN + "/embed/embed.js";
-        cal.loaded = true;
-      }
-      if (ar[0] === L) {
-        const api = function () { p(api, arguments); };
-        const namespace = ar[1];
-        api.q = api.q || [];
-        typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
-        return;
-      }
-      p(cal, ar);
-    };
-  })(window, "https://cal.com/embed/embed.js", "init");
-
-  Cal("init", { origin: CAL_ORIGIN });
-
-  Cal("inline", {
-    elementOrSelector: "#cal-embed",
-    calLink: CAL_SLUG,
-    layout: "month_view",
-  });
-
-  Cal("ui", {
-    styles: { branding: { brandColor: "#1e5fc2" } },
-    hideEventTypeDetails: false,
-    layout: "month_view",
-  });
+<script is:inline>
+  function switchCal(slug, btn) {
+    document.querySelectorAll('.cal-toggle-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('cal-embed').src =
+      'https://www.cal.eu/sanver-facilityservice/' + slug + '?embed=true&embedType=inline&theme=light';
+  }
 </script>
 
 <style>
   .booking { background: var(--gray-50); }
-
-  .booking-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 48px;
+  .booking-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
   }
-
-  .booking-header p { font-size: 1.05rem; }
-
-  .cal-wrapper {
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+  .booking-info h2 { margin-bottom: 16px; }
+  .booking-info > p { font-size: 1.02rem; line-height: 1.75; margin-bottom: 28px; }
+  .booking-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+  .booking-perks li { display: flex; align-items: center; gap: 12px; font-size: .93rem; color: var(--gray-900); font-weight: 500; }
+  .perk-check {
+    width: 26px; height: 26px; background: var(--green); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; font-weight: 800; flex-shrink: 0;
+  }
+  .booking-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);
     overflow: hidden;
-    border: 1px solid var(--blue-100);
   }
-
-  .cal-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 600px;
-    padding: 40px;
+  .booking-card-header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    padding: 28px 32px; text-align: center;
   }
-
-  .cal-loading {
-    text-align: center;
-    color: var(--gray-600);
+  .booking-card-header h3 { color: white; font-size: 1.2rem; margin-bottom: 6px; }
+  .booking-card-header p { color: rgba(255,255,255,0.65); font-size: .88rem; margin: 0; }
+  .booking-card-body { padding: 0 0 32px; }
+  .cal-toggle {
+    display: flex; gap: 0; padding: 16px 24px 0;
   }
-
-  .cal-spinner {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--blue-100);
-    border-top-color: var(--blue-500);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 16px;
+  .cal-toggle-btn {
+    flex: 1; padding: 10px 16px; font-size: .88rem; font-weight: 600;
+    border: 1.5px solid var(--blue-pale); background: var(--gray-50);
+    color: var(--gray-500); cursor: pointer; transition: all .15s;
   }
-
-  .cal-fallback {
-    margin-top: 16px;
-    font-size: 0.9rem;
+  .cal-toggle-btn:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .cal-toggle-btn:last-child  { border-radius: 0 var(--radius) var(--radius) 0; border-left: none; }
+  .cal-toggle-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .cal-toggle-btn:hover:not(.active) { background: var(--blue-pale); color: var(--navy); }
+  .cal-divider { height: 1px; background: var(--gray-100); margin: 0 24px 24px; }
+  .contact-direct { display: flex; flex-direction: column; gap: 12px; padding: 0 24px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--gray-50); border-radius: var(--radius);
+    padding: 14px 18px; text-decoration: none;
+    color: var(--navy); font-weight: 600; font-size: .9rem;
+    border: 1px solid var(--gray-100); transition: background .15s, border-color .15s;
   }
+  .contact-link:hover { background: var(--blue-pale); border-color: var(--blue); }
+  .contact-link-wa { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+  .contact-link-wa:hover { background: #dcfce7; border-color: #4ade80; }
+  .contact-link span:first-child { font-size: 1.2rem; }
 
-  .cal-fallback a {
-    color: var(--blue-500);
-    font-weight: 600;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
+  @media(max-width:900px){ .booking-inner { grid-template-columns: 1fr; gap: 48px; } }
 </style>

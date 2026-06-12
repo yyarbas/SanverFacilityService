@@ -1,77 +1,96 @@
 ---
-const reasons = [
-  { icon: '🏆', title: 'Zertifizierte Qualität', desc: 'ISO 9001, GEFMA-Mitglied und regelmäßige externe Audits sichern höchste Servicequalität.' },
-  { icon: '⚡', title: 'Schnelle Reaktionszeiten', desc: 'Bei Störungen sind wir innerhalb von 2 Stunden vor Ort — 24 Stunden am Tag, 365 Tage im Jahr.' },
-  { icon: '💰', title: 'Transparente Preise', desc: 'Keine versteckten Kosten. Individuelle Angebote mit klar kalkulierten Leistungspaketen.' },
-  { icon: '🌱', title: 'Nachhaltig & DSGVO-konform', desc: 'Umweltzertifizierte Mittel, CO₂-Bilanzierung und vollständige Datenschutz-Compliance nach deutschem Recht.' },
-];
 ---
 <section id="vorteile" class="whyus">
   <div class="container whyus-inner">
     <div class="whyus-content">
-      <span class="section-label">Warum FacilityPro?</span>
-      <h2>Qualität, die man spürt – und vertraut</h2>
+      <span class="tag">Warum Sanver?</span>
+      <h2>Der Unterschied, den man sieht — und fühlt.</h2>
       <p>
-        Wir sind nicht nur ein Dienstleister — wir sind Ihr langjähriger Partner. Über 250 Unternehmen vertrauen uns ihre Liegenschaften an.
+        Wir sind kein Massendienstleister. Jeder Auftrag ist für uns persönlich — denn hinter Sanver stecken echte Menschen mit echtem Anspruch. Qualität ist für uns keine Marketingaussage, sondern tägliche Verpflichtung.
       </p>
-      <a href="#termin" class="btn btn-primary" style="margin-top: 32px;">Kostenloses Erstgespräch →</a>
+      <div class="whyus-ctas">
+        <a href="#termin" class="btn btn-primary">Kostenloses Angebot →</a>
+        <a href="#leistungen" class="btn btn-ghost" style="color:white;border-color:rgba(255,255,255,0.4)">Alle Leistungen</a>
+      </div>
     </div>
 
-    <div class="reasons-grid">
-      {reasons.map((r) => (
-        <div class="reason-card">
-          <span class="reason-icon">{r.icon}</span>
-          <div>
-            <strong>{r.title}</strong>
-            <p>{r.desc}</p>
-          </div>
-        </div>
-      ))}
+    <div class="whyus-grid">
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <strong>Persönliche Betreuung</strong>
+        <p>Sie haben immer einen direkten Ansprechpartner — keine Warteschleifen, kein Callcenter.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⚡</span>
+        <strong>Reaktionsschnell</strong>
+        <p>Kurzfristige Anfragen, Notfalleinsätze und Sonderwünsche — wir reagieren schnell und unkompliziert.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <strong>Faire Preise</strong>
+        <p>Klare Kalkulation ohne versteckte Kosten. Sie wissen immer, was Sie bekommen und was es kostet.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌱</span>
+        <strong>Nachhaltig</strong>
+        <p>Wir setzen auf umweltfreundliche, biologisch abbaubare Reinigungsmittel — gut für Ihr Objekt und die Umwelt.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <strong>Ergebnisorientiert</strong>
+        <p>Nicht der Aufwand zählt — sondern das Ergebnis. Wir liefern Qualität, die sichtbar ist.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🔐</span>
+        <strong>Vertrauenswürdig</strong>
+        <p>Diskretion und Zuverlässigkeit sind für uns selbstverständlich — auch wenn wir außerhalb der Arbeitszeiten tätig sind.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .whyus {
-    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
-    color: white;
+    background: linear-gradient(145deg, #0D2154 0%, #1B3A7A 60%, #1A5FA0 100%);
+    position: relative; overflow: hidden;
   }
-
+  .whyus::before {
+    content: ''; position: absolute;
+    top: -100px; left: -100px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(41,171,226,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .whyus::after {
+    content: ''; position: absolute;
+    bottom: -100px; right: -100px; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(93,184,90,0.1), transparent 70%);
+    pointer-events: none;
+  }
   .whyus-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
   }
-
-  .whyus-content h2 { color: white; }
-  .whyus-content p { color: rgba(255,255,255,0.75); font-size: 1.05rem; }
-
-  .reasons-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .whyus-content h2 { color: var(--white); margin-bottom: 16px; }
+  .whyus-content > p { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px; }
+  .whyus-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .whyus-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   }
-
-  .reason-card {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 20px 24px;
-    transition: background 0.2s;
+  .why-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius); padding: 22px 20px;
+    transition: background .2s;
   }
+  .why-card:hover { background: rgba(255,255,255,0.11); }
+  .why-card .why-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+  .why-card strong { color: var(--blue-light); font-size: .95rem; display: block; margin-bottom: 5px; }
+  .why-card p { color: rgba(255,255,255,0.62); font-size: .85rem; margin: 0; line-height: 1.55; }
 
-  .reason-card:hover { background: rgba(255,255,255,0.1); }
-
-  .reason-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
-
-  .reason-card strong { color: var(--yellow-400); font-size: 1rem; display: block; margin-bottom: 4px; }
-  .reason-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
-
-  @media (max-width: 900px) {
+  @media(max-width:900px){
     .whyus-inner { grid-template-columns: 1fr; gap: 48px; }
+    .whyus-grid { grid-template-columns: repeat(2,1fr); }
   }
+  @media(max-width:480px){ .whyus-grid { grid-template-columns: 1fr; } }
 </style>

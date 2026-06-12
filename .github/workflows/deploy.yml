@@ -20,7 +20,20 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 
-      # ── 2. Ziel-Pfad setzen ────────────────────────────────
+      # ── 2. Astro bauen ─────────────────────────────────────
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Astro Build
+        run: npm run build
+
+      # ── 3. Ziel-Pfad setzen ────────────────────────────────
       - name: Umgebung konfigurieren
         id: config
         run: |
@@ -34,34 +47,19 @@ jobs:
             echo "url=https://www.sanver-facilityservice.de/test/"       >> $GITHUB_OUTPUT
           fi
 
-      # ── 3. Deploy-Ordner vorbereiten ───────────────────────
-      - name: Dateien vorbereiten
+      # ── 4. .htaccess je nach Branch ────────────────────────
+      - name: htaccess setzen
         run: |
-          mkdir -p deploy
-
-          # Website-Dateien
-          cp index.html impressum.html datenschutz.html agb.html deploy/
-          cp -r media deploy/
-
-          # robots.txt + sitemap aus public/ in Root
-          cp public/robots.txt  deploy/robots.txt
-          cp public/sitemap.xml deploy/sitemap.xml
-
-          # .htaccess je nach Branch
           if [ "${{ github.event.workflow_run.head_branch }}" = "dev" ]; then
-            cp pipeline/test-env/.htaccess deploy/.htaccess
-            # .htpasswd aus GitHub Secret
-            echo "${{ secrets.TEST_HTPASSWD }}" > deploy/.htpasswd
+            cp pipeline/test-env/.htaccess dist/.htaccess
+            echo "${{ secrets.TEST_HTPASSWD }}" > dist/.htpasswd
           else
-            cp .htaccess deploy/.htaccess
+            cp .htaccess dist/.htaccess
           fi
 
-          echo "Deploy-Ordner Inhalt:"
-          ls -la deploy/
-
-      # ── 4. Upload via SFTP ─────────────────────────────────
-      - name: lftp + sshpass installieren
-        run: sudo apt-get install -y lftp sshpass
+      # ── 5. Upload via SFTP ─────────────────────────────────
+      - name: lftp installieren
+        run: sudo apt-get install -y lftp
 
       - name: Upload zu Manitu
         env:
@@ -71,7 +69,6 @@ jobs:
           FTP_PORT: ${{ secrets.FTP_PORT }}
           REMOTE_PATH: ${{ steps.config.outputs.remote_path }}
         run: |
-          # lftp-Skript in Datei schreiben (Variablen werden korrekt expandiert)
           cat > /tmp/deploy.lftp << EOF
           set sftp:auto-confirm yes
           set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${FTP_PORT}"
@@ -79,14 +76,14 @@ jobs:
           set net:max-retries 3
           set net:reconnect-interval-base 5
           open -p ${FTP_PORT} -u ${FTP_USER},${FTP_PASS} sftp://${FTP_HOST}
-          mirror --reverse --delete --verbose --exclude=".git" deploy/ ${REMOTE_PATH}/
+          mirror --reverse --delete --verbose --exclude=".git" dist/ ${REMOTE_PATH}/
           quit
           EOF
 
           echo "Verbinde mit ${FTP_HOST}:${FTP_PORT} als ${FTP_USER}..."
           lftp -f /tmp/deploy.lftp
 
-      # ── 5. Zusammenfassung ─────────────────────────────────
+      # ── 6. Zusammenfassung ─────────────────────────────────
       - name: Deploy-Zusammenfassung
         run: |
           echo "## ✅ Deploy erfolgreich" >> $GITHUB_STEP_SUMMARY

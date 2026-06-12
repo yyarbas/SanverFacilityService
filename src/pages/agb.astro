@@ -7,11 +7,18 @@ import Footer from '../components/Footer.astro';
   <Nav />
   <main class="legal-page container">
     <h1>Allgemeine Geschäftsbedingungen</h1>
-    <p>Inhalte werden aus agb.html geladen.</p>
+    <p class="subtitle">Sanver Facility Service, Enes Sanver – Stand: Juni 2026</p>
+    <p>Die AGB werden in Kürze veröffentlicht. Bei Fragen wenden Sie sich bitte an <a href="mailto:info@sanver-facilityservice.de">info@sanver-facilityservice.de</a>.</p>
+    <p class="footer-link"><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
   </main>
   <Footer />
 </Layout>
+
 <style>
   .legal-page { padding: 80px 24px; max-width: 800px; margin: 0 auto; }
-  h1 { margin-bottom: 32px; }
+  .subtitle { color: var(--gray-600); margin-bottom: 32px; }
+  h1 { margin-bottom: 8px; }
+  p { margin-bottom: 16px; }
+  a { color: var(--blue-500); }
+  .footer-link { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--blue-100); font-size: 0.85rem; }
 </style>

@@ -1,103 +1,115 @@
 ---
-const services = [
-  {
-    icon: '🧹',
-    title: 'Gebäudereinigung',
-    desc: 'Professionelle Unterhalts-, Glas- und Sonderreinigung für Büros, Industrie und öffentliche Gebäude. Täglich, wöchentlich oder nach Bedarf.',
-  },
-  {
-    icon: '🔧',
-    title: 'Technisches Gebäudemanagement',
-    desc: 'Wartung und Instandhaltung von Heizungs-, Lüftungs- und Klimaanlagen, Elektrotechnik, Sanitär und Aufzügen.',
-  },
-  {
-    icon: '🌿',
-    title: 'Außenanlagenpflege',
-    desc: 'Pflege von Grünanlagen, Winterdienst, Schneeräumung und Streudienst — zuverlässig und termingerecht.',
-  },
-  {
-    icon: '🔒',
-    title: 'Sicherheitsdienste',
-    desc: 'Objektschutz, Empfangsdienste und Kontrollgänge durch geschultes und zertifiziertes Sicherheitspersonal.',
-  },
-  {
-    icon: '♻️',
-    title: 'Abfallmanagement',
-    desc: 'Entsorgungslogistik, Wertstofftrennung und nachhaltige Abfallwirtschaft gemäß deutschem Kreislaufwirtschaftsgesetz.',
-  },
-  {
-    icon: '📋',
-    title: 'Infrastrukturelles FM',
-    desc: 'Post- und Botendienste, Catering-Koordination, Umzugsservice und Flächenmanagement aus einer Hand.',
-  },
-];
 ---
 <section id="leistungen" class="services">
   <div class="container">
-    <div class="services-header">
-      <span class="section-label">Unsere Leistungen</span>
-      <h2>Alles aus einer Hand</h2>
-      <p class="services-intro">
-        Wir bieten das komplette Spektrum des Facility Managements — individuell zugeschnitten auf Ihre Liegenschaft und Anforderungen.
-      </p>
+    <div class="section-head">
+      <span class="tag">Unsere Leistungen</span>
+      <h2>Alles sauber. Alles aus einer Hand.</h2>
+      <p>Von der täglichen Büroreinigung bis zur Grundreinigung — wir übernehmen alle Reinigungsaufgaben rund um Ihr Objekt im Rhein-Main-Gebiet, damit Sie sich auf das Wesentliche konzentrieren können.</p>
     </div>
 
-    <div class="services-grid">
-      {services.map((s) => (
-        <div class="service-card">
-          <div class="service-icon">{s.icon}</div>
-          <h3>{s.title}</h3>
-          <p>{s.desc}</p>
+    <div class="services-categories">
+
+      <div class="service-category">
+        <h3><span>🏢</span> Büro- &amp; Gewerbereinigung</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="svc-icon">🖥️</span>
+            <h4>Büroreinigung</h4>
+            <p>Tägliche oder wöchentliche Reinigung von Arbeitsplätzen, Böden, Oberflächen und Gemeinschaftsbereichen — für ein Arbeitsumfeld, in dem sich alle wohlfühlen.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🔄</span>
+            <h4>Unterhaltsreinigung</h4>
+            <p>Regelmäßige, vertraglich vereinbarte Reinigung für dauerhaft gepflegte Objekte. Wir sorgen für gleichbleibend hohe Sauberkeit — zuverlässig und diskret.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏬</span>
+            <h4>Geschäftsräume &amp; Läden</h4>
+            <p>Saubere Verkaufsflächen, Umkleiden und Eingangsbereiche stärken das Vertrauen Ihrer Kunden. Wir reinigen außerhalb Ihrer Öffnungszeiten.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🍽️</span>
+            <h4>Küchen &amp; Kantinen</h4>
+            <p>Hygienegerechte Reinigung von Küchen, Kantinenbereichen und Aufenthaltsräumen — für Sauberkeit, die man schmeckt.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🚽</span>
+            <h4>Sanitäranlagen</h4>
+            <p>Gründliche Desinfektion und Reinigung von WCs, Waschräumen und Duschen — täglich frisch, keimarm und angenehm für alle Nutzer.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🪟</span>
+            <h4>Glas- &amp; Fensterreinigung</h4>
+            <p>Innen- und Außenreinigung von Fenstern, Glasfronten und Schaufenstern — für strahlende Transparenz und einen professionellen ersten Eindruck.</p>
+          </div>
         </div>
-      ))}
+      </div>
+
+      <div class="service-category">
+        <h3><span>✨</span> Weitere Leistungen</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="svc-icon">🧹</span>
+            <h4>Grundreinigung</h4>
+            <p>Intensive Tiefenreinigung für alle Bereiche — ideal nach Renovierungen, Umzügen oder wenn ein frischer Start gefragt ist. Wir bringen jedes Objekt auf Hochglanz.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏗️</span>
+            <h4>Bauendreinigung</h4>
+            <p>Nach Neubau oder Umbau beseitigen wir Bauschutt, Gipsstaub, Klebereste und Schmutz — damit Ihr Objekt glänzend und übergabebereit ist.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🏠</span>
+            <h4>Treppenhausreinigung</h4>
+            <p>Regelmäßige Reinigung von Treppenhäusern, Aufzügen und Gemeinschaftsflächen in Wohn- und Geschäftshäusern — für ein gepflegtes Erscheinungsbild.</p>
+          </div>
+          <div class="service-card">
+            <span class="svc-icon">🗑️</span>
+            <h4>Abfallmanagement</h4>
+            <p>Leerung und Reinigung von Mülleimern sowie fachgerechte Wertstofftrennung gemäß den deutschen Kreislaufwirtschaftsstandards.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  .services { background: var(--white); }
-
-  .services-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 56px;
+  .services { background: var(--gray-50); }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+  .section-head p { font-size: 1.02rem; margin-top: 10px; }
+  .services-categories { display: flex; flex-direction: column; gap: 52px; }
+  .service-category h3 {
+    font-size: 1rem; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+    display: flex; align-items: center; gap: 10px;
   }
-
-  .services-intro { font-size: 1.05rem; margin-top: 8px; }
-
+  .service-category h3 span { font-size: 1.3rem; }
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
   }
-
   .service-card {
-    background: var(--gray-50);
-    border: 2px solid transparent;
-    border-radius: 16px;
-    padding: 36px 28px;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    background: var(--white); border-radius: var(--radius-lg);
+    padding: 28px 24px; border: 1.5px solid transparent;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+    position: relative; overflow: hidden;
   }
-
-  .service-card:hover {
-    border-color: var(--yellow-400);
-    box-shadow: var(--shadow);
-    transform: translateY(-4px);
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--blue), var(--green));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .25s;
   }
+  .service-card:hover { border-color: var(--blue-pale); box-shadow: var(--shadow); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .svc-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+  .service-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .service-card p { font-size: .87rem; line-height: 1.6; }
 
-  .service-icon {
-    font-size: 2.4rem;
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .service-card p { font-size: 0.92rem; }
-
-  @media (max-width: 900px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 560px) {
-    .services-grid { grid-template-columns: 1fr; }
-  }
+  @media(max-width:900px){ .services-grid { grid-template-columns: repeat(2,1fr); } }
+  @media(max-width:560px){ .services-grid { grid-template-columns: 1fr; } }
 </style>

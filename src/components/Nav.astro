@@ -5,15 +5,14 @@
     <a href="#" class="logo">
       <img src="/media/sanver-logo-nav.png" alt="Sanver Facility Service" />
     </a>
-
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="#ueber-uns">Über uns</a></li>
       <li><a href="#leistungen">Leistungen</a></li>
-      <li><a href="#vorteile">Vorteile</a></li>
+      <li><a href="#vorteile">Warum wir?</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="#termin" class="btn btn-primary nav-cta">Termin buchen</a></li>
     </ul>
@@ -22,96 +21,46 @@
 
 <style>
   .nav-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--white);
-    border-bottom: 2px solid var(--blue-100);
-    box-shadow: 0 2px 12px rgba(10,31,68,0.07);
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27,58,122,0.09);
+    box-shadow: 0 2px 16px rgba(27,58,122,0.07);
   }
-
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-  .logo img {
-    height: 44px;
-    width: auto;
-    display: block;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .logo img { height: 44px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
   .nav-links a {
-    text-decoration: none;
-    color: var(--gray-600);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.15s;
+    text-decoration: none; color: var(--gray-500); font-weight: 500;
+    font-size: .93rem; transition: color .15s; position: relative;
   }
-  .nav-links a:hover { color: var(--blue-500); }
-
-  .nav-cta { padding: 10px 20px !important; font-size: 0.9rem !important; }
-
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 2px; background: var(--blue); transform: scaleX(0); transition: transform .2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta { padding: 11px 22px !important; font-size: .88rem !important; }
   .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
   }
-  .nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--blue-900);
-    border-radius: 2px;
-    transition: 0.3s;
-  }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .3s; }
 
-  @media (max-width: 768px) {
+  @media(max-width:900px){
     .nav-toggle { display: flex; }
-
     .nav-links {
-      display: none;
-      position: absolute;
-      top: 72px;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      flex-direction: column;
-      padding: 24px;
-      gap: 20px;
-      border-bottom: 2px solid var(--blue-100);
-      box-shadow: var(--shadow);
+      display: none; position: absolute; top: 76px; left: 0; right: 0;
+      background: white; flex-direction: column; padding: 24px 28px; gap: 20px;
+      border-bottom: 1px solid var(--gray-100); box-shadow: var(--shadow);
     }
     .nav-links.open { display: flex; }
-    .nav-links a { font-size: 1rem; }
   }
 </style>
 
 <script>
   const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
+  const links  = document.getElementById('navLinks');
   toggle?.addEventListener('click', () => links?.classList.toggle('open'));
-
-  // Close on link click (mobile)
-  links?.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => links.classList.remove('open'))
-  );
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links?.classList.remove('open')));
 </script>

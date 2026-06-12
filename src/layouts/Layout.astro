@@ -6,7 +6,7 @@ export interface Props {
 
 const {
   title = 'Sanver Facility Service – Sauberkeit, die überzeugt',
-  description = 'Professionelle Gebäudereinigung und Facility Management in Deutschland. Gegründet 2026 von Enes Sanver. Jetzt Termin vereinbaren.',
+  description = 'Professionelle Gebäudereinigung im Rhein-Main-Gebiet. Frankfurt am Main. Gegründet 2026 von Enes Sanver. Jetzt Termin vereinbaren.',
 } = Astro.props;
 ---
 
@@ -17,12 +17,12 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>{title}</title>
     <link rel="icon" type="image/png" href="/media/favicon-32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/media/favicon.png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/media/favicon.png" />
-    <!-- Inter self-hosted via @fontsource-variable/inter — no external requests, GDPR-safe -->
-    <!-- Import in your main CSS or here via Astro's style import -->
   </head>
   <body>
     <slot />
@@ -30,115 +30,69 @@ const {
 </html>
 
 <style is:global>
-  /* Self-hosted Inter — install with: npm install @fontsource-variable/inter */
   @import '@fontsource-variable/inter';
 
   :root {
-    --blue-900: #0a1f44;
-    --blue-700: #1a3a6b;
-    --blue-500: #1e5fc2;
-    --blue-300: #5b9bd5;
-    --blue-100: #dbeafe;
-    --yellow-400: #f5c800;
-    --yellow-300: #ffe066;
-    --white: #ffffff;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-600: #475569;
-    --gray-900: #0f172a;
-
-    --font: 'Inter', system-ui, sans-serif;
-    --radius: 10px;
-    --shadow: 0 4px 24px rgba(10, 31, 68, 0.10);
-    --shadow-lg: 0 8px 48px rgba(10, 31, 68, 0.16);
+    --navy:        #1B3A7A;
+    --navy-dark:   #112660;
+    --navy-mid:    #22478F;
+    --blue:        #29ABE2;
+    --blue-light:  #6DCBF0;
+    --blue-pale:   #E8F6FD;
+    --green:       #5DB85A;
+    --green-dark:  #429040;
+    --green-pale:  #EAF7EA;
+    --white:       #FFFFFF;
+    --gray-50:     #F7FAFC;
+    --gray-100:    #EEF2F7;
+    --gray-500:    #64748B;
+    --gray-900:    #0F172A;
+    --font: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px rgba(27,58,122,0.08);
+    --shadow:    0 4px 24px rgba(27,58,122,0.12);
+    --shadow-lg: 0 12px 48px rgba(27,58,122,0.18);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font);
-    color: var(--gray-900);
-    background: var(--white);
-    line-height: 1.6;
-  }
-
+  body { font-family: var(--font); color: var(--gray-900); background: var(--white); line-height: 1.65; }
   img { max-width: 100%; display: block; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  section { padding: 100px 0; }
 
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-pale); color: var(--green-dark);
+    font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; padding: 5px 14px;
+    border-radius: 100px; margin-bottom: 18px;
+    border: 1px solid rgba(93,184,90,0.25);
   }
+  .tag.blue { background: var(--blue-pale); color: #1480B0; border-color: rgba(41,171,226,0.25); }
 
-  section {
-    padding: 96px 0;
-  }
-
-  .section-label {
-    display: inline-block;
-    background: var(--yellow-400);
-    color: var(--blue-900);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-  }
-
-  h1, h2, h3 {
-    line-height: 1.2;
-    color: var(--blue-900);
-  }
-
-  h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
-    margin-bottom: 16px;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  p {
-    color: var(--gray-600);
-    font-size: 1rem;
-  }
+  h1, h2, h3 { color: var(--navy); line-height: 1.15; }
+  h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 800; margin-bottom: 14px; }
+  h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+  p { color: var(--gray-500); font-size: .97rem; }
 
   .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 30px; border-radius: var(--radius); font-weight: 700;
+    font-size: .97rem; text-decoration: none; border: none; cursor: pointer;
+    transition: transform .15s, box-shadow .15s, background .15s;
+    white-space: nowrap;
   }
-  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 16px rgba(41,171,226,0.35); }
+  .btn-primary:hover { background: #1D97CC; box-shadow: 0 8px 28px rgba(41,171,226,0.45); }
+  .btn-secondary { background: var(--navy); color: var(--white); box-shadow: 0 4px 16px rgba(27,58,122,0.25); }
+  .btn-secondary:hover { background: var(--navy-dark); box-shadow: 0 8px 28px rgba(27,58,122,0.35); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: var(--white); }
+  .btn-white { background: var(--white); color: var(--navy); box-shadow: var(--shadow); }
+  .btn-white:hover { box-shadow: var(--shadow-lg); }
 
-  .btn-primary {
-    background: var(--yellow-400);
-    color: var(--blue-900);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-  }
-  .btn-outline:hover { background: var(--white); color: var(--blue-900); }
-
-  @media (max-width: 768px) {
-    section { padding: 64px 0; }
-  }
+  @media(max-width:768px){ section { padding: 72px 0; } }
 </style>

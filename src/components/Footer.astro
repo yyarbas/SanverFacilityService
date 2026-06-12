@@ -1,131 +1,124 @@
 ---
 const currentYear = new Date().getFullYear();
 ---
-<footer class="footer">
+<footer class="footer" id="kontakt">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="#" class="logo">
+      <div class="footer-logo">
         <img src="/media/sanver-logo-nav.png" alt="Sanver Facility Service" />
-      </a>
-      <p>Professionelles Facility Management für Unternehmen in ganz Deutschland.</p>
-      <div class="footer-contact-info">
-        <span>📍 Musterstraße 1, 20095 Hamburg</span>
-        <span>📞 <a href="tel:+4940123456789">+49 40 123 456 789</a></span>
-        <span>✉️ <a href="mailto:info@facilityprogroup.de">info@facilityprogroup.de</a></span>
+      </div>
+      <p>Professionelle Gebäudereinigung und Facility Management — Einzelunternehmen, gegründet 2026 von Enes Sanver. Verwurzelt in Frankfurt, tätig im Rhein-Main-Gebiet.</p>
+      <div class="footer-contacts">
+        <span><span>📍</span> <span class="footer-highlight">Schöffenstraße 28, 65933 Frankfurt am Main</span></span>
+        <a href="tel:+491779139257"><span>📞</span> +49 177 9139257</a>
+        <a href="mailto:info@sanver-facilityservice.de"><span>✉️</span> <span class="footer-highlight">info@sanver-facilityservice.de</span></a>
       </div>
     </div>
 
-    <div class="footer-links">
+    <div class="footer-col">
       <h4>Leistungen</h4>
       <ul>
-        <li><a href="#leistungen">Gebäudereinigung</a></li>
-        <li><a href="#leistungen">Technisches FM</a></li>
-        <li><a href="#leistungen">Außenanlagen</a></li>
-        <li><a href="#leistungen">Sicherheitsdienste</a></li>
-        <li><a href="#leistungen">Abfallmanagement</a></li>
+        <li><a href="#leistungen">Büroreinigung</a></li>
+        <li><a href="#leistungen">Unterhaltsreinigung</a></li>
+        <li><a href="#leistungen">Grundreinigung</a></li>
+        <li><a href="#leistungen">Glasreinigung</a></li>
+        <li><a href="#leistungen">Desinfektion</a></li>
+        <li><a href="#leistungen">Winterdienst</a></li>
       </ul>
     </div>
 
-    <div class="footer-links">
+    <div class="footer-col">
       <h4>Unternehmen</h4>
       <ul>
         <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#vorteile">Warum FacilityPro?</a></li>
+        <li><a href="#vorteile">Warum Sanver?</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
         <li><a href="#termin">Termin buchen</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
         <li><a href="/impressum">Impressum</a></li>
-        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="/datenschutz">Datenschutzerklärung</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p>© {currentYear} FacilityPro GmbH · Alle Rechte vorbehalten</p>
-      <p>Entwickelt & gehostet in Deutschland 🇩🇪</p>
+      <p>© {currentYear} Sanver Facility Service · Enes Sanver · Einzelunternehmen</p>
+      <p>Frankfurt am Main · Rhein-Main-Gebiet 🇩🇪 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
     </div>
   </div>
 </footer>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/491779139257?text=Hallo%2C%20ich%20m%C3%B6chte%20einen%20Termin%20vereinbaren."
+   class="wa-btn" aria-label="WhatsApp schreiben" title="WhatsApp schreiben">
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.51 5.831L.057 23.57a.5.5 0 0 0 .609.61l5.819-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.006-1.371l-.36-.213-3.714.929.946-3.629-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+</a>
+
 <style>
   .footer {
-    background: var(--blue-900);
-    color: rgba(255,255,255,0.75);
-    padding-top: 72px;
+    background: linear-gradient(160deg, #0D2154 0%, #1B3A7A 100%);
+    padding-top: 80px;
   }
-
   .footer-inner {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 64px;
+    display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 40px; padding-bottom: 64px;
   }
-
-  .footer-brand .logo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    margin-bottom: 16px;
+  .footer-logo img { height: 48px; margin-bottom: 18px; filter: brightness(0) invert(1); opacity: .9; }
+  .footer-brand p { font-size: .9rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 22px; }
+  .footer-contacts { display: flex; flex-direction: column; gap: 10px; }
+  .footer-contacts a, .footer-contacts span {
+    color: rgba(255,255,255,0.55); font-size: .87rem;
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: color .15s;
   }
-  .footer-brand .logo img {
-    height: 48px;
-    width: auto;
-    display: block;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+  .footer-contacts a:hover { color: var(--blue-light); }
+  .footer-highlight { color: #ffcc55; font-weight: 600; }
+  .footer-col h4 {
+    color: white; font-size: .8rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-
-  .footer-brand p { font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px; }
-
-  .footer-contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.88rem;
-  }
-
-  .footer-contact-info a { color: var(--yellow-300); text-decoration: none; }
-  .footer-contact-info a:hover { text-decoration: underline; }
-
-  .footer-links h4 {
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.15s;
-  }
-  .footer-links a:hover { color: var(--yellow-300); }
-
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: .88rem; transition: color .15s; }
+  .footer-col a:hover { color: var(--blue-light); }
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.08);
     padding: 20px 0;
   }
-
   .footer-bottom-inner {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
-    flex-wrap: wrap;
-    gap: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .8rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 8px;
   }
+  .footer-bottom-inner a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-bottom-inner a:hover { color: var(--blue-light); }
 
-  @media (max-width: 768px) {
-    .footer-inner { grid-template-columns: 1fr 1fr; }
+  .wa-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    text-decoration: none; transition: transform .2s, box-shadow .2s;
+  }
+  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+
+  @media(max-width:900px){
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
     .footer-brand { grid-column: 1 / -1; }
-    .footer-bottom-inner { flex-direction: column; }
   }
-
-  @media (max-width: 480px) {
+  @media(max-width:520px){
     .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom-inner { flex-direction: column; text-align: center; }
+    .wa-btn { bottom: 20px; right: 16px; }
   }
 </style>

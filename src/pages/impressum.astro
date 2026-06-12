@@ -7,11 +7,61 @@ import Footer from '../components/Footer.astro';
   <Nav />
   <main class="legal-page container">
     <h1>Impressum</h1>
-    <p>Inhalte werden aus impressum.html geladen.</p>
+    <p class="subtitle">Angaben gemäß § 5 TMG</p>
+
+    <div class="info-box">
+      <h2>Unternehmensangaben</h2>
+      <p><strong>Name:</strong> Sanver Facility Service</p>
+      <p><strong>Rechtsform:</strong> Einzelunternehmen</p>
+      <p><strong>Inhaber:</strong> Enes Sanver</p>
+      <p><strong>Straße:</strong> Schöffenstraße 28</p>
+      <p><strong>PLZ / Ort:</strong> 65933 Frankfurt am Main</p>
+      <p><strong>Land:</strong> Deutschland</p>
+    </div>
+
+    <div class="info-box">
+      <h2>Kontakt</h2>
+      <p><strong>Telefon:</strong> <a href="tel:+4901779139257">0177 9139257</a></p>
+      <p><strong>E-Mail:</strong> <a href="mailto:info@sanver-facilityservice.de">info@sanver-facilityservice.de</a></p>
+      <p><strong>Website:</strong> <a href="https://www.sanver-facilityservice.de">www.sanver-facilityservice.de</a></p>
+    </div>
+
+    <div class="info-box">
+      <h2>Steuerliche Angaben</h2>
+      <p><strong>Steuernummer:</strong> 014 863 79001</p>
+      <p class="note">Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: nicht vorhanden (Kleinunternehmerregelung § 19 UStG)</p>
+    </div>
+
+    <div class="info-box">
+      <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+      <p>Enes Sanver<br />Schöffenstraße 28<br />65933 Frankfurt am Main</p>
+    </div>
+
+    <h2>Haftungsausschluss</h2>
+    <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+
+    <h2>Urheberrecht</h2>
+    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+
+    <p class="footer-link"><a href="/datenschutz">Datenschutzerklärung</a></p>
   </main>
   <Footer />
 </Layout>
+
 <style>
   .legal-page { padding: 80px 24px; max-width: 800px; margin: 0 auto; }
-  h1 { margin-bottom: 32px; }
+  .subtitle { color: var(--gray-600); margin-bottom: 40px; }
+  h1 { margin-bottom: 8px; }
+  h2 { font-size: 1.1rem; margin: 32px 0 10px; }
+  .info-box {
+    background: var(--gray-50);
+    border: 1px solid var(--blue-100);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .info-box p { margin-bottom: 6px; }
+  .info-box p:last-child { margin-bottom: 0; }
+  .note { font-size: 0.88rem; color: var(--gray-600); }
+  .footer-link { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--blue-100); font-size: 0.85rem; }
 </style>

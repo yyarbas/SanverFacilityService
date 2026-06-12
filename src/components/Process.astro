@@ -1,0 +1,66 @@
+---
+---
+<section id="ablauf" class="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">So läuft es ab</span>
+      <h2>Einfach. Transparent. Unkompliziert.</h2>
+      <p>Von der ersten Anfrage bis zur strahlend sauberen Übergabe — in vier klaren Schritten.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Anfrage stellen</h4>
+        <p>Termin online buchen oder uns direkt kontaktieren — schnell und unkompliziert.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Beratung &amp; Besichtigung</h4>
+        <p>Wir besichtigen Ihr Objekt persönlich und ermitteln den genauen Bedarf.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Angebot &amp; Vereinbarung</h4>
+        <p>Sie erhalten ein transparentes, individuelles Angebot — ohne Kleingedrucktes.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Reinigung &amp; Übergabe</h4>
+        <p>Unser Team übernimmt — pünktlich, gründlich und mit Qualitätskontrolle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process { background: var(--white); }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+  .section-head p { font-size: 1.02rem; margin-top: 10px; }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 0; position: relative; margin-top: 56px;
+  }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 36px; left: calc(12.5%); right: calc(12.5%);
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    z-index: 0;
+  }
+  .process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white; font-size: 1.4rem; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; box-shadow: 0 4px 20px rgba(27,58,122,0.3);
+  }
+  .process-step h4 { color: var(--navy); font-size: .97rem; font-weight: 700; margin-bottom: 8px; }
+  .process-step p { font-size: .85rem; line-height: 1.6; }
+
+  @media(max-width:768px){
+    .process-steps { grid-template-columns: repeat(2,1fr); gap: 40px; }
+    .process-steps::before { display: none; }
+  }
+  @media(max-width:420px){ .process-steps { grid-template-columns: 1fr; } }
+</style>
