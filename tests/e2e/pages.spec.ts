@@ -22,13 +22,13 @@ test.describe('Unterseiten', () => {
 
   test('Footer-Link zu Impressum funktioniert', async ({ page }) => {
     await page.goto('/');
-    await page.locator('footer a[href*="impressum"]').click();
+    await page.locator('footer a[href*="impressum"]').first().click();
     await expect(page).toHaveURL(/impressum/);
   });
 
   test('Footer-Link zu Datenschutz funktioniert', async ({ page }) => {
     await page.goto('/');
-    await page.locator('footer a[href*="datenschutz"]').click();
+    await page.locator('footer a[href*="datenschutz"]').first().click();
     await expect(page).toHaveURL(/datenschutz/);
   });
 
