@@ -51,6 +51,12 @@ const currentYear = new Date().getFullYear();
       <p>Frankfurt am Main · Rhein-Main-Gebiet 🇩🇪 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
     </div>
   </div>
+
+  <div class="footer-credit">
+    <div class="container">
+      <p>Gefällt Ihnen die Website? <a href="https://yy-solutions.com" target="_blank" rel="noopener noreferrer">Hier finden Sie mich.</a></p>
+    </div>
+  </div>
 </footer>
 
 <!-- WhatsApp Floating Button -->
@@ -110,6 +116,23 @@ const currentYear = new Date().getFullYear();
     text-decoration: none; transition: transform .2s, box-shadow .2s;
   }
   .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+
+  .footer-credit {
+    background: rgba(0,0,0,0.25);
+    padding: 10px 0;
+    text-align: center;
+  }
+  .footer-credit p {
+    font-size: .75rem;
+    color: rgba(255,255,255,0.3);
+    margin: 0;
+  }
+  .footer-credit a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .footer-credit a:hover { color: var(--blue-light); }
 
   @media(max-width:900px){
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
